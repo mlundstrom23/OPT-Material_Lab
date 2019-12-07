@@ -1,0 +1,1384 @@
+
+<script type="text/javascript">
+	function validation()
+	{
+		var name  = document.getElementById('name');
+		var email = document.getElementById('email');
+		var mobile = document.getElementById('mobile');
+		
+
+		if(name.value.length==0 || name.value == 'Your Name*') {
+			alert("Please enter your name");
+			return false;	 
+		} 
+		if(mobile.value.length==0 || mobile.value == 'Your Mobile*') {
+			alert("Please enter your mobile number");
+			return false;	 
+		} 		
+		if(email.value.length == 0 || email.value == 'Your Email*') {
+			alert("Please enter your e-mail id");
+			return false;
+		}
+		else if(!validateEmail(email.value)) {
+			alert("Invalid e-mail id");
+			return false;
+	 	}
+		
+		
+		
+	}
+	
+	function validateEmail(email){
+		var emailRegEx = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		str = email;
+		if(str.match(emailRegEx)){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+</script>
+<!DOCTYPE html>
+
+<html lang="en">
+        <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>OPT_Material Lab - OPT Industries Inc.</title>
+        <meta charset="utf-8">
+        <meta name="description" content="View 3D STL files directly in your browser - no software installation is required">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="css/fancybox.css" media="screen" />
+        <link rel="stylesheet" href="css/960.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
+	    <link rel="stylesheet" href="css/text.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="css/ui.totop.css" type="text/css" media="screen,projection" />
+        <link rel="stylesheet" href="css/skins/style_blue.css" type="text/css" media="screen" />
+
+        <!-- Jquery-->
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/html2canvas.js"></script>
+        <script type="text/javascript" src="js/jquery.plugin.html2canvas.js"></script>
+
+        <script type="text/javascript" src="js/jquery.mousewheel-3.0.4.pack.js"></script>
+        <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
+        <script type="text/javascript" src="js/jquery.ui.totop.js"></script>
+
+        
+        <script type="text/javascript">
+        $(document).ready(function() {
+			/*
+			var defaults = {
+	  			containerID: 'moccaUItoTop', // fading element id
+				containerHoverClass: 'moccaUIhover', // fading element hover class
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+	 		};
+			*/
+			
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			
+			
+			
+		});
+		
+	</script>
+<style>
+h1 cufon canvas { height:40px !important}
+h2 cufon canvas { height:33px !important}
+cufon canvas { height:20px !important}
+cufon cufontext { text-transform:lowercase !important}
+</style>
+
+		
+		<style type="text/css">
+			html {margin: 0;}
+			body {margin: 0;}
+			
+			.cinfo
+			{
+				width:350px;
+				border-bottom: 1px solid #DEDEDE;
+				padding:2px 10px 2px 10px;
+				margin-bottom:10px;
+				
+			}
+			
+			.cinfo table {width:100%;}
+			.cinfo tr {text-align:left;vertical-align:top;}
+			.cinfo tr td {padding-top: 10px;}
+			.cinfo tr th {font-weight: normal;padding-top: 10px;}
+			.cinfo tr td  select{padding: 5px;}
+			#statswrap
+			{
+				display:inline-block;
+				vertical-align:top;
+				-webkit-transition: width 1.5s;
+				transition: width 1.5s;
+				overflow:hidden;
+			}
+			
+			.cbar
+			{
+				width:20px;
+				height:20px;
+				display:inline-block;
+				cursor:pointer;
+				border:2px solid transparent;
+			}
+			
+			.cact {margin-bottom:5px;}
+			.cact span {border-bottom: 1px dotted #3434AB;color:#3434AB;cursor:pointer;}
+			
+			.vslink
+			{
+				position:absolute;
+				bottom:0px;right:1px;
+				font:10px Arial;color:#555555;
+				text-decoration:none;
+			}
+		</style>
+
+				<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-54015102-1', 'auto');
+		ga('send', 'pageview');
+		</script>
+		
+		<style>
+			header
+			{
+				text-align:center;
+				border: 1px solid #909090;
+				border-radius: 12px;
+				padding:5px;
+				margin:5px;
+				background:#FFFFFF;
+			}
+
+			footer
+			{
+				float:right;
+				font:14px Arial;color:#1010FF;
+				margin:30px;
+			}
+			
+			footer a {text-decoration:none;font:14px Arial;color:#1010FF;}
+			footer a:hover {text-decoration:none;font:14px Arial;color:#1010FF;}
+			
+			h2 {margin-bottom:5px;margin-top:0px;}
+			
+			h4 {margin-left:20px;margin-bottom:1px;margin-top:2px;color:#202050;}
+			h5 {margin-left:20px;margin-bottom:2px;margin-top:0px;font-weight: normal;}
+		
+			.stitle
+			{
+				font:20px Arial;color:#2020DD;margin:10px 30px 10px 30px;
+			}
+			#esprice
+			{
+				font-weight: bold;
+			}
+		</style>			
+	<script type="text/javascript">
+	
+	function validation()
+	{
+		var name  = document.getElementById('name');
+		var email = document.getElementById('email');
+
+		var sub = true;
+		
+		if(name.value.length==0 || name.value == 'Your Name') {
+			alert("Please enter your name");
+			sub = false;	 
+		} 
+		if(mobile.value.length==0 || mobile.value == 'Your Mobile') {
+			alert("Please enter your mobile number");
+			sub = false;	 
+		} 		
+		if(email.value.length == 0 || email.value == 'Your Email') {
+			alert("Please enter your e-mail id");
+			sub = false;
+		}
+		else if(!validateEmail(email.value)) {
+			alert("Invalid e-mail id");
+			sub = false;
+	 	}
+		
+		return sub;
+		
+	}
+	
+	function validateEmail(email){
+		var emailRegEx = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		str = email;
+		if(str.match(emailRegEx)){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	function sendestimate()
+	{
+		if(validation())
+		{
+			//$("#dumm").submit('contactus_do.php');
+			 $('#cjcwrap').html2canvas({
+        			onrendered: function (canvas) {
+            //Set hidden field's value to image data (base-64 string)
+            $('#img_val').val(canvas.toDataURL("image/png"));
+			var fllname = baseName($('#flname').val());
+			
+           	$.ajax({
+				  type: "POST",
+				  async : false,
+				  url: "save.php",
+				  data: { imdata: $('#img_val').val() , name: fllname }
+			});
+  
+        }  });
+			document.getElementById("dumm").action = "contactus_do.php";
+			document.getElementById("dumm").submit();
+							
+		}
+			
+	}
+</script>
+
+		<script src="stl_viewer/three.min.js"></script>
+		<script src="stl_viewer/webgl_detector.js"></script>
+		<script src="stl_viewer/OrbitControls.js"></script>
+		<script src="stl_viewer/parser.js"></script>
+		<script src="stl_viewer/general/read_internal.js"></script>
+		<script src="stl_viewer/general/read_external.js"></script>
+
+		<script> var need_browser=false; </script>
+
+<!--[if lt IE 10 ]>
+		<script>
+			//window.location.href="/replace_browser.html";
+			need_browser=true;
+		</script>
+<![endif]-->
+
+		<script>
+			if (!(typeof FileReader !== "undefined"))
+			{
+				//window.location.href="/replace_browser.html";
+				need_browser=true;
+			}
+		</script>
+
+		<script>
+			var is_ie = !!window.MSStream;
+			var waiting=false;
+			var mesh=null;
+			var material=new THREE.MeshLambertMaterial({color:0x909090, overdraw: 1, wireframe: false, shading:THREE.FlatShading, vertexColors: THREE.FaceColors});
+			
+			if (!is_ie)
+				//double side not supported on IE
+				material.side = THREE.DoubleSide;
+			
+			var cancel_download=false;	
+			var max_file_size=100000000;
+			var mesh_color='#909090';
+			
+			var xsize=0;
+			var ysize=0;
+			var zsize=0;
+			var vol=0;
+			var area=0;
+			var triangles_count=0;
+			var model_filename='';
+			var view_units=1; //mm
+			var file_units=1; //mm
+			var bg_color=0xffffff;
+			
+			function $id(id)
+			{
+				return document.getElementById(id);
+			}
+
+			function set_view_units(v)
+			{
+				view_units=v;
+				$id("vunits").innerHTML=v=="1"?"mm":v=="2" ? "in" : "cm";
+				$id("flvunits").value = $id("vunits").innerHTML;
+				//setCookie("units", v=="1"?"mm":v=="2" ? "in" : "cm", 1000);
+				//recalc_units();
+			}
+			
+			function set_file_units(v)
+			{
+				file_units=v;
+				//recalc_units();
+			}
+			
+			function recalc_units()
+			{
+				if (view_units==1)
+					set_vol_and_size(vol, xsize, ysize, zsize);
+				else if (view_units==2)
+					//file in mm, view in inches
+					set_vol_and_size(vol, xsize, ysize, zsize);
+				else
+					//file in inches, view in mm
+					set_vol_and_size(vol, xsize, ysize, zsize);
+			}
+			
+			function do_resize()
+			{
+				var height = isNaN(window.innerHeight) ? window.clientHeight : window.innerHeight;
+				var width = isNaN(window.innerWidth) ? window.clientWidth : window.innerWidth;
+								height=Math.min(height,width-150);
+                $id('cjc').style.height='70%';
+				$id('cjc').style.width='99%';
+				$id('cjcwrap').style.height='70%';
+				$id('cjcwrap').style.width='99%';
+				$id('cjcdrag').style.top='40%';
+				$id('cjcdrag').style.left='12%';
+				$id('cjcpbar').style.top='38%';
+				$id('cjcpbar').style.left='12%';
+				$id('cjcproc').style.top='38%';
+				$id('cjcproc').style.left='12%';
+								
+				var rsize_width=$id("cjcwrap").getBoundingClientRect().width;
+				var rsize_height=$id("cjcwrap").getBoundingClientRect().height;
+				renderer.setSize(rsize_width-5, rsize_height-5);
+			}
+			
+			function handleDragOver(e)
+			{
+				if (waiting) return;
+			
+				e.stopPropagation();
+				e.preventDefault();
+				e.dataTransfer.dropEffect = 'copy';			
+			}
+			
+		
+			
+			function handleFileDrop(e)
+			{
+				e.stopPropagation();
+				e.preventDefault();
+				
+				if (waiting) return;
+			
+				//first, check if its a file
+				if (e.dataTransfer.files.length>0)
+				{
+					if (e.dataTransfer.files[0].size>max_file_size)
+					{
+						alert('File is too big - maximum allowed size is 100mb');
+						return false;
+					}
+					
+					if (!supported_file_type(e.dataTransfer.files[0].name))
+					{
+						alert('File type is not supported');
+						return false;
+					}
+					read_file(e.dataTransfer.files[0]);
+				}
+				
+				else if (typeof e.dataTransfer.getData("Text") === 'string')
+				{
+					//check - maybe a url?
+					read_from_url(e.dataTransfer.getData("Text"));
+				}				
+			}
+			
+			function supported_file_type (filename)
+			{
+				switch (filename.split('.').pop().toLowerCase())
+				{
+					case 'stl':
+					case 'obj':
+					case 'vf':
+						return true;
+						break;
+						
+					default:
+						return false;
+				}
+				
+			}
+			
+			function switch_view(v)
+			{
+				$id('cjcdrag').style.display=((v=='drag')?'block':'none');
+				$id('cjcpbar').style.display=((v=='pbar')?'block':'none');
+				$id('cjcproc').style.display=((v=='proc')?'block':'none');
+				$id('cjc').style.display=((v=='cjc')?'block':'none');
+			}
+			
+			function after_error()
+			{
+				switch_view('drag');
+				cancel_download=false;
+				waiting=false;
+				return false;
+			}
+			function baseName(str)
+			{
+			   var base = new String(str).substring(str.lastIndexOf('/') + 1); 
+				if(base.lastIndexOf(".") != -1)       
+					base = base.substring(0, base.lastIndexOf("."));
+			   return base;
+			}
+			
+			function after_file_load(filename, s, examp = false)
+			{
+				var vf_data;
+				
+				try
+				{
+					vf_data=parse_3d_file(filename, s);
+				}
+				catch(err)
+				{
+					vf_data="Error parsing the file";
+				}
+				
+				if (typeof vf_data === 'string')
+				{
+					
+					switch_view('drag');
+					waiting=false;
+					return;
+				}
+				
+				if (mesh!=null) {scene.remove(mesh);mesh=null};
+				
+				var geo=new THREE.Geometry;
+				geo.vertices=vf_data.vertices;
+				geo.faces=vf_data.faces;				
+				geo.computeBoundingBox();
+					
+				geo.computeCentroids();
+				geo.computeFaceNormals();
+				geo.computeVertexNormals();
+				THREE.GeometryUtils.center(geo);
+				mesh = new THREE.Mesh(geo, material);
+				
+				if (vf_data.colors)
+					set_color($id('white_color'),'#FFFFFF');
+				
+				update_mesh_color();
+				
+				//renderer.setClearColor(bg_color, 0); //background
+				set_color(null, bg_color, true); //background
+				
+				scene.add(mesh);
+				
+				directionalLight.position.x = geo.boundingBox.min.y * 2;
+				directionalLight.position.y = geo.boundingBox.min.y * 2;
+				directionalLight.position.z = geo.boundingBox.max.z * 2;
+
+				pointLight.position.x = (geo.boundingBox.min.y+geo.boundingBox.max.y)/2;
+				pointLight.position.y = (geo.boundingBox.min.y+geo.boundingBox.max.y)/2;
+				pointLight.position.z = geo.boundingBox.max.z * 2;
+				
+				camera.position.set(0,0,Math.max(geo.boundingBox.max.x*3,geo.boundingBox.max.y*3,geo.boundingBox.max.z*3));
+				controls.reset();
+				switch_view('cjc');
+				
+				xsize=geo.boundingBox.max.x-geo.boundingBox.min.x;
+				ysize=geo.boundingBox.max.y-geo.boundingBox.min.y;
+				zsize=geo.boundingBox.max.z-geo.boundingBox.min.z;				
+				vol_area=calc_vol_and_area(geo);
+				vol=vol_area[0];
+				area=vol_area[1];
+				triangles_count=geo.faces.length;
+				model_filename=filename;
+				$id('flname').value = model_filename;
+				 var fllname = baseName(model_filename);
+				 $id('flbname').value = fllname + '.png' ;
+				
+				guess_file_units(xsize,ysize,zsize);
+				recalc_units();
+				
+				$id('ifilename').innerHTML=filename.substr(0,20);
+				$id('ifilename').style.visibility='visible';
+				
+				//document.querySelector('input[name="material"]:checked').value,$id('pden').value,$id('suview').value
+				
+				ppp = re_real_price(document.querySelector('input[name="material"]:checked').value,'INR',$id('suview').value) ;
+				$id('esprice').value = ppp;
+				$id('esprice1').innerHTML = ppp;
+				//setTimeout(function(){$id('statswrap').style.width='280px';}, 500);
+								
+								
+				//$id('cjcwrap').addEventListener('dragover', handleDragOver, false);
+				//$id('cjcwrap').addEventListener('drop', handleFileDrop, false);
+				if(!examp)
+				{
+					$id('priceesdiv1').style.display = "none";
+					$id('priceesdiv').style.display = "block";				
+				}	
+				else
+				{
+					$id('priceesdiv').style.display = "none";
+					$id('priceesdiv1').style.display = "block";
+				}	
+				
+				waiting=false;
+			}
+			
+			
+			
+			function set_color_by_name(color, is_bg_color)
+			{
+				is_bg_color=is_bg_color||false;
+				switch (color.toLowerCase())
+				{
+					case "black":		set_color($id('black_color'),'#000000',is_bg_color); break;
+					case "white":		set_color($id('white_color'),'#FFFFFF',is_bg_color); break;
+					case "blue":		set_color($id('blue_color'),'#0000FF',is_bg_color); break;
+					case "green":		set_color($id('green_color'),'#00FF00',is_bg_color); break;
+					case "red":			set_color($id('red_color'),'#FF0000',is_bg_color); break;
+					case "yellow":		set_color($id('yellow_color'),'#FFFF00',is_bg_color); break;
+					case "gray":		set_color($id('gray_color'),'#909090',is_bg_color); break;
+					case "azure":		set_color($id('azure_color'),'#00FFFF',is_bg_color); break;
+					case "pink":		set_color($id('pink_color'),'#FF00FF',is_bg_color); break;
+					case "purple":		set_color($id('purple_color'),'#703487',is_bg_color); break;
+					case "darkblue":	set_color($id('darkblue_color'),'#102075',is_bg_color); break;
+					case "brown":		set_color($id('brown_color'),'#654321',is_bg_color); break;
+					case "transparent": set_color($id('white_color'),'transparent',true); break;					
+					default:
+						//any valid color value goes
+						if (/^#[0-9A-F]{6}$/i.test(color))
+							set_color($id('white_color'),color,is_bg_color);
+				}
+			}
+
+			
+			function set_color(o, o_color, is_bg_color)
+			{
+				is_bg_color=is_bg_color||false;
+				
+				if (is_bg_color)
+				{
+					bg_color=o_color;
+					if (o_color=='transparent')
+						renderer.setClearColor(0x000000, 0);
+					else
+						renderer.setClearColor(o_color, 1);
+					return;
+				}
+				
+								c = $id('cpal').getElementsByTagName("div");
+				
+				var i=c.length;	
+				while(i--)
+				{
+					if (c[i]==o)
+						c[i].style.border="2px solid #012101";
+					else
+						c[i].style.border="2px solid transparent";
+				}
+								
+				//mesh_color=o.style.background;
+				mesh_color=o_color;
+				update_mesh_color();
+			}
+	
+			
+			function update_mesh_color()
+			{
+				if (mesh==null) return;
+				mesh.material.color.set(parseInt(mesh_color.substr(1),16));
+			}
+			
+			function calc_vol_and_area(geo)
+			{
+				var x1,x2,x3,y1,y2,y3,z1,z2,z3,i;
+				var len=geo.faces.length;
+				var totalVolume=0;
+				var totalArea=0;
+				var a,b,c,s;
+				
+				for (i=0;i<len;i++)
+				{
+					x1=geo.vertices[geo.faces[i].a].x;
+					y1=geo.vertices[geo.faces[i].a].y;
+					z1=geo.vertices[geo.faces[i].a].z;
+					x2=geo.vertices[geo.faces[i].b].x;
+					y2=geo.vertices[geo.faces[i].b].y;
+					z2=geo.vertices[geo.faces[i].b].z;
+					x3=geo.vertices[geo.faces[i].c].x;
+					y3=geo.vertices[geo.faces[i].c].y;
+					z3=geo.vertices[geo.faces[i].c].z;
+					
+					totalVolume += 
+						(-x3 * y2 * z1 + 
+						x2 * y3 * z1 +
+						x3 * y1 * z2 - 
+						x1 * y3 * z2 - 
+						x2 * y1 * z3 + 
+						x1 * y2 * z3);
+						
+					a=geo.vertices[geo.faces[i].a].distanceTo(geo.vertices[geo.faces[i].b]);
+					b=geo.vertices[geo.faces[i].b].distanceTo(geo.vertices[geo.faces[i].c]);
+					c=geo.vertices[geo.faces[i].c].distanceTo(geo.vertices[geo.faces[i].a]);
+					s=(a+b+c)/2;
+					totalArea+=Math.sqrt(s*(s-a)*(s-b)*(s-c));
+				}
+
+				return [Math.abs(totalVolume/6), totalArea];
+			}
+			
+			function numberWithCommas(x)
+			{
+				var parts = x.toString().split(".");
+				parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+				return parts.join(".");
+			}
+
+			function set_shading(i)
+			{
+				if (i==2)
+					material.wireframe=true;
+				else
+				{
+					material.wireframe=false;
+					material.shading=((i==1)?THREE.SmoothShading:THREE.FlatShading);
+					if (mesh!=null)
+						mesh.geometry.normalsNeedUpdate = true;
+				}
+			}
+			
+			function view_example(ename)
+			{
+				download_from_local('examples/'+ename, ename);
+			}
+			
+			function reset()
+			{
+				if (waiting) return;
+				switch_view('drag');
+				if (mesh!=null) {scene.remove(mesh);mesh=null;}
+				$id('fileselect').value='';
+				document.getElementById("dumm").reset();
+			}
+			
+			function prepare_upload_file()
+			{
+				if (waiting) return;
+				if ($id('fileselect').value=='') return;
+				
+				//alert($id('fileselect').files[0]);
+				upload_file($id('fileselect').files[0]);
+			}
+			
+					
+			
+			function open_img()
+			{
+				
+				$('#cjcwrap').html2canvas({
+        			onrendered: function (canvas) {
+					//Set hidden field's value to image data (base-64 string)
+					$('#img_val').val(canvas.toDataURL("image/png"));
+					var fllname = baseName($('#flname').val());
+					
+					$.ajax({
+						  type: "POST",
+						  async : false,
+						  url: "save.php",
+						  data: { imdata: $('#img_val').val() , name: fllname },
+						  success: function(response) { 
+						var image = new Image();
+					image.src = fllname + '.png';
+			
+					var w = window.open("");
+					w.document.write(image.outerHTML);
+						   }
+					});
+		  
+				}  });
+			
+				
+			}
+			
+						function setCookie(cname, cvalue, exdays)
+			{
+				var d = new Date();
+				d.setTime(d.getTime() + (exdays*24*60*60*1000));
+				var expires = "expires="+d.toUTCString();
+				document.cookie = cname + "=" + cvalue + "; " + expires;
+			}
+			
+			function getCookie(cname)
+			{
+				var name = cname + "=";
+				var ca = document.cookie.split(';');
+				for(var i=0; i<ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0)==' ') c = c.substring(1);
+					if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+				}
+				return "";
+			}			
+			
+			function guess_file_units(xsize,ysize,zsize)
+			{
+				//try to guess the file's units (mm or inch?)
+				if ((xsize<1)&&(ysize<1)&&(zsize<1))
+				{
+					file_units=2;
+					rin.checked=true;
+				}
+				else
+				{
+					file_units=1;
+					rmm.checkd=true;
+				}
+			}
+			
+			function set_vol_and_size(vol,xsize,ysize,zsize)
+			{
+				var p=view_units==2?0:0;
+				$id('ivol').innerHTML=numberWithCommas(vol.toFixed(p));
+				$id('isize').innerHTML=numberWithCommas(xsize.toFixed(p))+' x '+numberWithCommas(ysize.toFixed(p))+' x '+numberWithCommas(zsize.toFixed(p));
+				$id('flsize').value = $id('isize').innerHTML;
+				$id('flvolume').value = $id('ivol').innerHTML;				
+			}
+			
+			function re_cal_price()
+			{
+				//$id('met').value = document.querySelector('input[name="rate"]:checked').value;
+				//$id('cur').value = $id('met').value;
+				//$id('len').value = $id('met').value;
+				
+				
+				if($('#priceesdiv').css('display') == 'block')
+				{
+					ppp = re_real_price(document.querySelector('input[name="material"]:checked').value,$id('pden').value,$id('suview').value) ;
+					$id('esprice').value =  ppp;
+				}
+				else if($('#priceesdiv1').css('display') == 'block')
+				{
+					ppp = re_real_price(document.querySelector('input[name="material"]:checked').value,$id('pden1').value,$id('suview').value) ;
+					$id('esprice1').innerHTML = ppp;	
+				}
+					
+					
+				//$id('esprice1').innerHTML = ppp;
+			}
+			
+			function re_cal_price1()
+			{
+				//$id('met').value = document.querySelector('input[name="rate"]:checked').value;
+				//$id('cur').value = $id('met').value;
+				//$id('len').value = $id('met').value;
+				
+				
+				//$id('esprice').value =  ppp;
+				
+			}
+			
+			function re_real_price(me,cu,le)
+			{
+				var vl = vol.toFixed(2);
+				
+				switch(me){
+					case 'FDM' : 
+							if( le == 3)
+							{
+								fromp = 15* eval(vl);
+								topp   = 35* eval(vl);																						
+							}
+							else if( le == 1)
+							{
+								fromp = (15* eval(vl))/1000;
+								topp   = (35* eval(vl))/1000;
+							}
+							else if(le == 2)
+							{
+								fromp = 15* eval(vl) * 16.387;
+								topp   = 35* eval(vl)* 16.387;
+							}
+							
+								
+							if(cu == 'INR')
+									return 'INR '+ Math.round(fromp.toFixed(2)) + ' to INR ' +	Math.round(topp.toFixed(2));
+								else if(cu == 'USD')
+								{
+									fromp1 = eval(fromp/66);
+									topp1   = eval(topp/66);
+								
+									return 'USD '+ Math.round(fromp1.toFixed(2)) + ' to USD ' +	Math.round(topp1.toFixed(2));	
+								}
+								else if(cu == 'EUR')
+								{
+									fromp2 = eval(fromp/74);
+									topp2   = eval(topp/74);
+								
+									return 'EUR '+ Math.round(fromp2.toFixed(2)) + ' to EUR ' +	Math.round(topp2.toFixed(2));	
+								}											
+								
+						break;
+					case 'SLA' : 
+							
+							if( le == 3)
+							{
+								fromp = 120* eval(vl);
+								topp   = 240* eval(vl);																						
+							}
+							else if( le == 1)
+							{
+								fromp = (120* eval(vl))/1000;
+								topp   = (240* eval(vl))/1000;
+							}
+							else if(le == 2)
+							{
+								fromp = 120* eval(vl) * 16.387;
+								topp   = 240* eval(vl)* 16.387;
+							}
+							
+								
+							if(cu == 'INR')
+									return 'INR '+ Math.round(fromp.toFixed(2)) + ' to INR ' +	Math.round(topp.toFixed(2));
+								else if(cu == 'USD')
+								{
+									fromp1 = eval(fromp/66);
+									topp1   = eval(topp/66);
+								
+									return 'USD '+ Math.round(fromp1.toFixed(2)) + ' to USD ' +	Math.round(topp1.toFixed(2));	
+								}
+								else if(cu == 'EUR')
+								{
+									fromp2 = eval(fromp/74);
+									topp2   = eval(topp/74);
+								
+									return 'EUR '+ Math.round(fromp2.toFixed(2)) + ' to EUR ' +	Math.round(topp2.toFixed(2));	
+								}
+								
+						break;
+					case 'SLS' : 
+							if( le == 3)
+							{
+								fromp = 90* eval(vl);
+								topp   = 180* eval(vl);																						
+							}
+							else if( le == 1)
+							{
+								fromp = (90* eval(vl))/1000;
+								topp   = (180* eval(vl))/1000;
+							}
+							else if(le == 2)
+							{
+								fromp = 90* eval(vl) * 16.387;
+								topp   = 180* eval(vl)* 16.387;
+							}
+							
+								
+							if(cu == 'INR')
+									return 'INR '+ Math.round(fromp.toFixed(2)) + ' to INR ' +	Math.round(topp.toFixed(2));
+								else if(cu == 'USD')
+								{
+									fromp1 = eval(fromp/66);
+									topp1   = eval(topp/66);
+								
+									return 'USD '+ Math.round(fromp1.toFixed(2)) + ' to USD ' +	Math.round(topp1.toFixed(2));	
+								}
+								else if(cu == 'EUR')
+								{
+									fromp2 = eval(fromp/74);
+									topp2   = eval(topp/74);
+								
+									return 'EUR '+ Math.round(fromp2.toFixed(2)) + ' to EUR ' +	Math.round(topp2.toFixed(2));	
+								}
+						break;
+				}
+			}
+			
+					</script>
+
+
+
+</head>
+
+<body id="top">
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ ga('create', 'UA-38183728-8', 'auto');
+ ga('send', 'pageview');
+
+</script>
+	<input type="file" style="position:absolute; top:-150px;" id="fileselect" onChange="prepare_upload_file();">
+		<!-- Start Head Container -->
+		<div class="container_12 margin">
+		
+			<!-- Logo -->
+			<div class="grid_6 logo"><a href="index.php" class='ie6fix'>think3D</a></div>
+			
+			<!-- Call Us -->
+			<div class="grid_6 call">
+			
+			<span>Call Us! <span style="letter-spacing:1px">08142896564</span></span><br />
+			<span>Email Us! <span style="letter-spacing:1px;"><span style="text-transform:lowercase !important">info@think3d.in</span></span></span>				
+			</div><!-- Call Us END -->
+
+		</div><!-- Head Container END -->
+		
+		<div class="clear"></div><!-- CLEAR -->
+		
+		<!-- Start Header Break Line -->
+		<div class="container_12">
+			<hr class="grid_12"></hr>
+		</div><!-- Header Break Line END -->
+		
+		<div class="clear"></div><!-- CLEAR -->
+	
+		<!-- Start Teaser -->
+		<div class="container_12 ">
+			
+			<!-- Start Centered Text -->
+			<div class="grid_12 middle">
+				
+				<!-- Heading -->	
+				<h1 class="heading">Get Price Estimate For Your 3D Model</h1>
+                
+				
+				<!-- Subheading -->
+				<span class="subhead"  style="background:none !important; border:0px !important; padding:0px !important">We won't upload these STL files to our server. Your IP is fully protected.</span>
+
+			</div><!-- Centered Text END -->
+	
+		</div><!-- Teaser END -->
+	
+	<div class="clear"></div>
+		
+	<!-- Start Container 12 -->
+    <form name="dumm" id="dumm" method="post">
+    <input type="hidden" name="img_val" id="img_val" value="" />
+    <input type="hidden" name="flname" id="flname" value="" />
+    <input type="hidden" name="flbname" id="flbname" value="" />
+    <input type="hidden" name="flsize" id="flsize" value="" />
+    <input type="hidden" name="flvolume" id="flvolume" value="" />
+    <input type="hidden" name="flvunits" id="flvunits" value="" />
+	<div id="main_content" class="container_12">
+		<!-- Start Video -->
+		<div class="grid_6 featured">
+	    	<div id="cjcwrap" style="position:relative;border:1px dashed #000000;background:#EEEEEE;display:inline-block; float: right;">
+					<div id="cjcdrag" style="position:absolute;height:100px;width:350px;text-align:center;">
+                        <span id="titlet1" style="font:20px Arial;color:#343434;">Drag & drop your STL file here</span><br>
+                        <span id="titlet2" style="font:14px Arial;color:#3434AB;cursor:pointer;" onClick="if (waiting) return false;$id('fileselect').click();">or <u>browse your computer</u></span>													
+					</div>				
+					<div id="cjcpbar" style="display:none;position:absolute;height:50px;width:350px;text-align:center;">
+						<span id="pgt1" style="font:15px Arial;color:#343478;">Reading file ...</span><br>
+						<progress id="file_pbar"  value="0" max="1"></progress><br><span id="fcancel" style="text-decoration:underline;cursor:pointer;" onClick="cancel_download=true;">(cancel)</span>
+					</div>
+					<div id="cjcproc" style="display:none;position:absolute;height:50px;width:350px;text-align:center;">
+						<span id="prt1" style="font:15px Arial;color:#343478;">Processing ...</span><br>
+					</div>				
+					<div id="cjc" onMouseDown="$id('rrotate2').checked=true;controls.autoRotate=false;" style="display:none;position:absolute;left:0px;top:0px;margin:0 auto;text-align:center;"></div>
+				 </div>
+            <div style="clear:both"></div>
+            <div style="width:100%; margin-top:10px">
+                 	<div class="cact" onClick="open_img();" style="float:left"><span>Snap a picture</span></div>
+                    <div style="cursor:pointer;text-decoration:underline;color:#000055; float:right" onClick="reset();">Upload New STL</div>
+            </div>
+            
+                       
+		</div><!-- Video END -->		
+		<!-- Start Newsletter Signup -->
+		<div class="grid_6" style="margin-left:10px; width:370px !important">
+			
+			<div id="statswrap" >
+				<div style="width:400px;overflow:hidden;">
+					<!--<h1 id="ifilename" style="visibility:hidden;">_</h1>-->
+				
+					<div class="cinfo">
+						<span style="color:red; font-size:20px">Model info</span>
+						<table>
+                        	<tr style="vertical-align:bottom;">
+								<th>Name </th>
+								<td id="ifilename" style="width:50%;"></td>
+							</tr>
+							<tr style="vertical-align:bottom;">
+								<th>Size </th>
+								<td id="isize" style="width:50%;"></td>
+							</tr>
+							<tr>
+								<th>Volume (<span id="vunits">mm</span><sup>3</sup>)</th>
+								<td id="ivol" style="text-align:left;"></td>
+							</tr>
+                            <tr>
+                            	<th>Units</th>
+                                <td>
+                                	<select id="suview" name="suview" onChange="set_view_units(this.value);re_cal_price()"><option value="1">mm</option><option value="2">in</option><option value="3">cm</option></select>
+                                </td>
+                            </tr>
+							<tr style="display:none">
+								<th>File units</th>
+								<td>
+									
+                                    <input type="radio" id="rmm" onClick="set_file_units(1);" name="runits" value="0" checked>mm<br>
+									<input type="radio" id="rin" onClick="set_file_units(2);" name="runits" value="1">in<br>
+                                    <input type="radio" id="rcm" onClick="set_file_units(3);" name="runits" value="2">cm<br>
+								</td>
+							</tr>
+						</table>
+					</div>
+					
+					
+					<div class="cinfo">
+						<span style="color:red; font-size:20px">Options</span>
+						<table>
+							<tr>
+								<th>Display</th>
+								<td style="width:50%;">
+                                	<select name="rshade" onChange="set_shading(this.value)">
+                                    	<option value="0">Flat Shading</option>
+                                        <option value="1">Smooth Shading</option>
+                                        <option value="2">Wireframe</option>
+                                        
+                                    </select>
+									<!--<input type="radio" id="rshade1" onClick="set_shading(0);" name="rshade" value="0" checked>Flat Shading<br>
+									<input type="radio" id="rshade2" onClick="set_shading(1);" name="rshade" value="1">Smooth Shading<br>
+									<input type="radio" id="rshade3" onClick="set_shading(2);" name="rshade" value="2">Wireframe<br>-->
+								</td>
+							</tr>
+							<tr>
+								<th>Color</th>
+								<td id="cpal" style="width:50%;">
+																	<!--<div class="cbar" id="black_color" onClick="set_color(this,'#000000');" style="background:#000000;"></div>
+									<div class="cbar" id="white_color" onClick="set_color(this,'#FFFFFF');" style="background:#FFFFFF;"></div>
+									<div class="cbar" id="blue_color" onClick="set_color(this,'#0000FF');" style="background:#0000FF;"></div>
+									<div class="cbar" id="green_color" onClick="set_color(this,'#00FF00');" style="background:#00FF00;"></div>
+                                    <div class="cbar" id="yellow_color" onClick="set_color(this,'#FFFF00');" style="background:#FFFF00;"></div>
+                                    <div class="cbar" id="pink_color" onClick="set_color(this,'#FF00FF');" style="background:#FF00FF;"></div>
+                                    -->
+									<div class="cbar" id="red_color" onClick="set_color(this,'#FF0000');" style="background:#FF0000;"></div>
+									
+									<div class="cbar" id="gray_color" onClick="set_color(this,'#909090');" style="background:#909090;border:2px solid #012101;"></div>
+									<div class="cbar" id="azure_color" onClick="set_color(this,'#00FFFF');" style="background:#00FFFF;"></div>
+									
+									<div class="cbar" id="purple_color" onClick="set_color(this,'#703487');" style="background:#703487;"></div>
+									<div class="cbar" id="darkblue_color" onClick="set_color(this,'#102075');" style="background:#102075;"></div>
+									<div class="cbar" id="brown_color" onClick="set_color(this,'#654321');" style="background:#654321;"></div>
+													
+												</td>
+							</tr>
+							<tr>
+								<th>Rotation</th>
+								<td>
+                                	<select name="rrotate" onChange="set_rotation1(this.value)">
+                                    	<option value="0">Yes</option>
+                                        <option value="1">No</option>
+                                    </select>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+					<div class="cinfo">
+						<span style="color:red; font-size:20px">Choose Material</span>
+                        <table>
+                        	<tr>
+                            	<td style="width:100%">                                    
+                                    <input type="radio" name="material" value="FDM" title="Thermoplastics like PLA, ABS, Nylon, Flexible ABS etc" onClick="re_cal_price()" checked>&nbsp;FDM &nbsp;&nbsp; <input type="radio" name="material" value="SLA" onClick="re_cal_price()" title="Resin variants including transparent, castable, opaque, tough etc">&nbsp;SLA &nbsp;&nbsp;<input type="radio" name="material" value="SLS" onClick="re_cal_price()" title="PA Nylon powder">SLS &nbsp;
+                                    </td>
+                            </tr>
+                        </table>
+                        
+					<!--<div class="cact" onClick="open_img();"><span>Snap a picture</span></div>
+						<div>Check if print-ready (coming soon)</div>
+					</div>
+
+					
+					<div style="width:100%;text-align:center;cursor:pointer;text-decoration:underline;color:#000055;" onClick="reset();">View another STL</div>-->
+						
+				</div>
+                
+                <div class="cinfo" id="priceesdiv" style="display:none">
+						<span style="color:red; font-size:20px">Estimated  Price</span>
+                        <table>
+                        	<tr>
+                            	<th>Currency</th>
+                            	<td style="width:50%">
+                                	<select name="pden" id="pden" onChange="re_cal_price()">
+                                    	<option value="INR">INR</option>
+                                        <option value="USD">USD</option>
+                                        <option value="EUR">EUR</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <input type="hidden" value="" id="esprice"  name="esprice"/>
+                         <!--   <tr>
+                            	<th>Estimated  Price:</th>
+                                <td id="esprice" style="color:#FF0000"></td>
+                            </tr>-->
+                            <tr>
+                            	<th>Name:</th>
+                                <td><input type="text" id="name" name="name" class="inputbg" style="padding:6px"  onfocus="if (this.value == 'Your Name') {this.value = '';}" onBlur="if (this.value == '') {this.value = 'Your Name';}" value="Your Name" /></td>
+                            </tr>
+                            <tr>
+                            	<th>Email:</th>
+                                <td><input type="text" id="email" name="email" class="inputbg" style="padding:6px"   onfocus="if (this.value == 'Your Email') {this.value = '';}" onBlur="if (this.value == '') {this.value = 'Your Email';}" value="Your Email" /></td>
+                            </tr>
+                            <tr>
+                            	<th>Mobile:</th>
+                                <td><input type="text" id="mobile" name="mobile" class="inputbg" style="padding:6px"   onfocus="if (this.value == 'Your Mobile') {this.value = '';}" onBlur="if (this.value == '') {this.value = 'Your Mobile';}" value="Your Mobile" /></td>
+                            </tr>
+                            <tr>
+                            	
+                                <td colspan="2"><input type="button"  id="btn" style="padding:6px"  onclick="sendestimate();"  value="Send Price Estimation" /></td>
+                            </tr>
+                            
+                        </table>
+						
+				</div>
+                
+                <div class="cinfo" id="priceesdiv1" style="display:none">
+						<span style="color:red; font-size:20px">Estimated  Price</span>
+                        <table>
+                        	<tr>
+                            	<th>Currency</th>
+                            	<td style="width:50%">
+                                	<select name="pden1" id="pden1" onChange="re_cal_price()">
+                                    	<option value="INR">INR</option>
+                                        <option value="USD">USD</option>
+                                        <option value="EUR">EUR</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                            	<th>Estimated  Price:</th>
+                                <td id="esprice1" style="color:#FF0000"></td>
+                            </tr>
+                            
+                            
+                        </table>
+						
+				</div>
+                <!--<div class="cinfo">
+						<h2>Place order</h2>
+                        <table>
+                        	<tr>
+                            	<th>upload file</th>
+                            	<td>
+                                	<input type="file" name="mfile" id="mfile">
+                                </td>
+                            </tr>
+                            <tr>
+                            	<td colspan="2" style="text-align:center;"><input type="submit" value="Place Order" style="padding:10px; width:90%"></td>
+                            </tr>
+                        </table>
+						
+				</div>-->
+                
+                
+			</div>
+						
+						
+					</div>
+			
+		</div><!-- Newsletter Signup END -->
+        
+	</div><!-- Container 12 END-->
+	</form>
+	<div class="clear"></div><!-- CLEAR -->
+	
+	<!-- Start Footer Bottom -->
+	<div id="fullwidth_footer_bottom">
+	
+		<!-- Start Footer Bottom Container -->
+		<div class="container_12">
+        	
+        	<!-- Start Copyright -->
+			<div class="grid_6 copyright">          
+			<p class="rights">© Copyright 2019. OPT Industries Inc. All rights reserved.</p>
+			</div><!-- Copyright END -->
+
+			<!-- Start Social Footer -->
+			<div class="grid_4">
+				<ul class="social_bookmarks_footer">
+				<li class="twitter"><a href="https://twitter.com/think3d_in" class="" title="Twitter">Twitter</a></li>
+				<li class="facebook"><a href="https://www.facebook.com/think3d.in" class="" title="Facebook">Facebook</a></li>
+				<li class="rss"><a href="http://www.think3d.in" class="" title="RSS">RSS Feed</a></li>
+				</ul>
+			</div><!-- Social Footer END -->
+			            
+		</div><!-- Footer Bottom Container END -->
+		
+    </div><!-- Footer Bottom END --> 
+    <!-- Clearfix -->    
+	<div class="clear"></div>
+
+		
+<!-- IE fix -->
+<script type="text/javascript"> Cufon.now(); </script>	
+<script type="text/javascript">
+$('input[type=radio][name=interest]').change(function() {
+		var selected = jQuery("input:radio[name=interest]:checked");
+		if(selected.val() == 'Know More')
+		{
+			
+			$('#availservice').css('display','none');
+			$('#description').css('display','none');
+			
+			$('#knowmore').css('display','block');
+		}
+		else
+		{
+			
+			if(selected.val() == 'Avail Service')
+			{
+				$('#knowmore').css('display','none');
+				
+				$('#availservice').css('display','block');
+				$('#description').css('display','block');
+			}
+		}
+});		
+</script>
+
+
+
+
+<script>
+			var scene = new THREE.Scene();
+			var is_webgl=webgl_Detector.webgl;
+			var renderer = is_webgl ? new THREE.WebGLRenderer({preserveDrawingBuffer:true, alpha:true}): new THREE.CanvasRenderer();
+			var mesh=null;
+			var ambientLight     = null;
+			var directionalLight = null;
+			var pointLight       = null;
+			var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 10000);
+
+			do_resize();
+
+			renderer.setClearColor( bg_color, 1);
+			$id('cjc').appendChild(renderer.domElement);
+			camera.position.set(0,0,100);
+			scene.add(camera);			
+	
+			ambientLight = new THREE.AmbientLight(0x202020);
+			camera.add(ambientLight);
+			
+			directionalLight = new THREE.DirectionalLight(0xffffff, 0.75);
+			directionalLight.position.x = 1;
+			directionalLight.position.y = 1;
+			directionalLight.position.z = 2;
+			directionalLight.position.normalize();
+			camera.add(directionalLight);
+    
+			pointLight = new THREE.PointLight(0xffffff, 0.3);
+			pointLight.position.x = 0;
+			pointLight.position.y = -25;
+			pointLight.position.z = 10;
+			camera.add(pointLight);			
+			
+			function animate()
+			{
+ 			    requestAnimationFrame(animate);
+ 				renderer.render(scene, camera);
+				controls.update();
+			}			
+			
+						
+			var units_cookie=getCookie("units");
+			suview.value=units_cookie=="in"?2:1;
+			view_units=units_cookie=="in"?2:1;
+			$id("vunits").innerHTML=units_cookie=="in"?"in":"mm";
+			
+						
+			//this function is being called from outside (from embeded page)
+			function set_rotation(b)
+			{
+				controls.autoRotate=b;
+				animate();
+			}
+			function set_rotation1(b)
+			{
+				if( b == 0)
+					controls.autoRotate=true;
+				else
+					controls.autoRotate=false;
+			}
+			
+			//this function is being called from outside (from embeded page)
+			function set_clean_mode(b)
+			{
+				$id('titlet1').style.display=b?'none':'inline';
+				$id('titlet2').style.display=b?'none':'inline';
+				$id('pgt1').style.display=b?'none':'inline';
+				$id('file_pbar').style.display=b?'none':'inline';
+				$id('fcancel').style.display=b?'none':'inline';
+				$id('prt1').style.display=b?'none':'inline';
+			}
+			
+			//this function is being called from outside (from embeded page)
+			function set_noborder(b)
+			{
+				$id('cjcwrap').style.border=(b?'none':'1px dashed #000000');
+			}				
+			
+			var controls = new THREE.OrbitControls(camera, renderer.domElement);
+			
+			if (is_webgl)
+				controls.autoRotate=true;
+			else
+			{
+				 $id('rrotate2').checked=true; 				controls.autoRotate=false;
+			}
+			
+			animate();
+			
+			window.onresize=
+			function()
+			{
+				do_resize();
+			}
+
+			$id('cjcwrap').addEventListener('dragover', handleDragOver, false);
+			$id('cjcwrap').addEventListener('drop', handleFileDrop, false);
+			
+		</script>
+		
+			
+		<!--<footer>
+			<a href="/">ViewSTL</a>&nbsp;&nbsp;&nbsp;
+			<a href="/embed/">Embed</a>&nbsp;&nbsp;&nbsp;
+			<a href="https://wordpress.org/plugins/wp-viewstl/" target="_blank">Wordpress Plugin</a>&nbsp;&nbsp;&nbsp;
+			<a href="/faq/">FAQ</a>&nbsp;&nbsp;&nbsp;
+			<a href="/tos/">Terms</a>&nbsp;&nbsp;&nbsp;
+			<a href="mailto:admin@viewstl.com">Contact</a>
+		</footer>	-->
+	
+	
+		<script>
+			if (need_browser)
+				alert('Your browser is too old and is not supported by this website. Please install a modern browser (Chrome is recommended).');
+		</script>
+		
+				
+				
+					
+		
+				
+				
+		
+		<script>setTimeout(function(){$id('mainwrap').style.visibility='visible';}, 200);</script>
+
+</body>
+</html>
