@@ -5,12 +5,12 @@
 
 body {
 	font-size:14px;
-	font-family: 'Roboto', Arial, 'Liberation Sans', FreeSans, sans-serif;
+	font-family: 'Avenir', 'Liberation Sans', FreeSans, sans-serif;
 	background: #ffffff url(../images/head-bg.png) scroll transparent;
-	color: #333;
+	color: #bbbbbb;
 }
 
-a { text-decoration: none; color: #333; }
+a { text-decoration: none; color: #282b2e; }
 
 .head { margin-top: 30px; }
 
@@ -72,7 +72,7 @@ h1.heading {
 	text-align: center;
 	margin: 0px;
 	padding: 0px;
-	color: #333;
+	color: #ffffff;
 	margin-bottom: 20px;
 }
 
@@ -80,11 +80,10 @@ h1.heading {
 	display:block;
 	text-align: center;
 	font: Roboto 13px bold;
-	color: #666666;
+	color: #dedede;
 	padding: 10px 0 10px 0;
 	margin-top: -12px;
 	margin-bottom: 5px;
-	background: #fefae6;
 	border: 1px solid #ffe266;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
@@ -204,7 +203,7 @@ h1.heading {
 	position:absolute;
 	left:0px;
 	bottom:0px;
-	background:#333;
+	background:#282b2e;
 	color:#fff;
 	opacity:0.9; /* Overridden by captionOpacity setting */
 	width:100%;
@@ -267,7 +266,7 @@ h1.heading {
 *************************************************************************/
 
 .box {
-	background: #fff;
+	background: #282b2e;
 	/*border: 1px solid #e6e6e6;*/
 	padding: 20px 15px 20px 15px;
 	margin: 10px 0 0 0;
@@ -342,85 +341,27 @@ h1.heading {
 #fullwidth_footer_border {
 	width: 100%;
 	height: 2px;
-	background: url(../images/footer_border.png) repeat-x;
 }
 
 #fullwidth_footer_top {
 	width: 100%;
 	min-height: 450px;
-	background: url(../images/footer_bg.png) repeat top left;
 }
 
 #fullwidth_footer_bottom {
 	width: 100%;
-	height: 75px;
+	height: 45px;
+	margin-top: 50px;
 	background:	#282b2e;
-	
+	overflow: auto;
 }
 
 .copyright {
 	font-size: 11px;
-	width: 620px;
-	margin-top: 32px;
+	margin-top: 13px;
 	padding-left: 70px;
-	color: #b1b1b1;
+	color: #d5d5d5;
 }
-
-
-/*** SOCIAL BUTTONS ***/
-
-.social_bookmarks_footer {
-	float: right;
-	height: 24px;
-	list-style-type: none;
-	margin: 27px 0 0 0;
-	line-height: 0px;
-	z-index: 6;
-}
-
-.social_bookmarks_footer li {
-	float:right;
-	margin:0;
-	width:24px;
-	padding:0 7px 0 0;
-}
-
-.social_bookmarks_footer li a {
-	height:24px;
-	width:24px;
-	display: block;
-	float:left;
-	text-indent: -9999px;
-	border:none;
-	padding:0;
-	outline: none;
-}
-
-.social_bookmarks_footer .rss a {
-	background: transparent url(../images/icons/rss.png) 0 0 no-repeat; text-indent: -9999px;
-}
-
-.social_bookmarks_footer .facebook a {
-	background: transparent url(../images/icons/facebook.png) 0 0 no-repeat; text-indent: -9999px;
-}
-
-.social_bookmarks_footer .twitter a {
-	background: transparent url(../images/icons/twitter.png) 0 0 no-repeat; text-indent: -9999px;
-}
-
-.social_bookmarks_footer .rss a:hover {
-	background: transparent url(../images/icons/rss-hover.png) 0 0 no-repeat; text-indent: -9999px;
-}
-
-.social_bookmarks_footer .facebook a:hover {
-	background: transparent url(../images/icons/facebook-hover.png) 0 0 no-repeat; text-indent: -9999px;
-}
-
-.social_bookmarks_footer .twitter a:hover {
-	background: transparent url(../images/icons/twitter-hover.png) 0 0 no-repeat; text-indent: -9999px;
-}
-
-
 
 
 body .alignleft {
@@ -480,16 +421,3 @@ ul.checklist li {
 .left { float: left; }
 
 .right { float: right; }
-
-/************************************************************************
--) FACEBOOK COMMENTS
-*************************************************************************/
-
-.fb {
-	padding:30px;
-	background:#fff;
-	width:700px;
-	margin:0 auto;
-	margin-bottom: 50px;
-	border: 1px solid #e5e5e5;
-}
