@@ -517,35 +517,12 @@ cufon cufontext { text-transform:lowercase !important}
 				
 				//document.querySelector('input[name="material"]:checked').value,$id('pden').value,$id('suview').value
                 
+                //const x = document.getElementById('material1')
 				//var ppp = re_real_price();
 				//$id('esprice').value = ppp;
                 //$id('esprice1').innerHTML = ppp;
-
-                function re_real_price() {
-
-                    var vl = vol.toFixed(2);
-                    
-                    var price = $id('esprice1').innerHTML;
-
-                        switch (document.getElementById('material1').value) {
-                            case 'FDM' : 
-                                var fromp = 15* vl;
-                                var topp  = 35* vl;
-                                    price = 'USD '+ Math.round(fromp.toFixed(2)) + ' to USD ' +	Math.round(topp.toFixed(2));
-                                    break;    
-                            case 'SLA' : 
-                                var fromp = 120* vl;
-                                var topp  = 240* vl;
-                                    price = 'USD '+ Math.round(fromp.toFixed(2)) + ' to USD ' +	Math.round(topp.toFixed(2));
-                                    break;
-                            case 'SLS' :
-                                var fromp = 90* vl;
-                                var topp  = 180* vl;
-                                    price = 'USD '+ Math.round(fromp.toFixed(2)) + ' to USD ' +	Math.round(topp.toFixed(2));
-                                    break;
-
-                        }
-                    }
+                
+                
             	
 				//setTimeout(function(){$id('statswrap').style.width='280px';}, 500);
 								
@@ -563,8 +540,32 @@ cufon cufontext { text-transform:lowercase !important}
 					$id('priceesdiv1').style.display = "block";
 				}	*/
 				
-			}
-			
+            }
+            
+			function re_real_price() {
+                    var x = document.getElementById('material1').value;
+                
+                    var vl = vol.toFixed(2);
+                    
+                        switch (x) {
+                            case 'FDM' : 
+                                var fromp = 15* vl;
+                                var topp  = 35* vl;
+                                    document.getElementById('esprice1').innerHTML = 'USD '+ Math.round(fromp.toFixed(2)) + ' to USD ' +	Math.round(topp.toFixed(2));
+                                    break;    
+                            case 'SLA' : 
+                                var fromp = 120* vl;
+                                var topp  = 240* vl;
+                                    document.getElementById('esprice1').innerHTML = 'USD '+ Math.round(fromp.toFixed(2)) + ' to USD ' +	Math.round(topp.toFixed(2));
+                                    break;
+                            case 'SLS' :
+                                var fromp = 90* vl;
+                                var topp  = 180* vl;
+                                    document.getElementById('esprice1').innerHTML = 'USD '+ Math.round(fromp.toFixed(2)) + ' to USD ' +	Math.round(topp.toFixed(2));
+                                    break;
+
+                        }
+                    }
 			
 			
 			function set_color_by_name(color, is_bg_color)
@@ -994,11 +995,12 @@ cufon cufontext { text-transform:lowercase !important}
 					</div>
 
 					<div class="cinfo" id="material">
-						<span style="color:#2aafe8; font-size:20px">Choose Material</span>
+						<span style="color:#2aafe8; font-size:20px">Material</span>
                         <table>
                         	<tr>
                                 <td style="width:100%">  
-                                    <select id="material1" name="resin" onChange="re_real_price(this.value)">                                 
+                                    <select id="material1" name="resin" onChange="re_real_price(this.value)">
+                                        <option id="choose">Choose one</option>                                 
                                         <option id="FDM" value="FDM">FDM</option> 
                                         <option id="SLA" value="SLA">SLA</option>
                                         <option id="SLS" value="SLS">SLS</option> 
