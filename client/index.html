@@ -508,22 +508,51 @@ cufon cufontext { text-transform:lowercase !important}
 				 $id('flbname').value = fllname + '.png' ;
 				
 				guess_file_units(xsize,ysize,zsize);
-				recalc_units();
-				
+                recalc_units();
+                
+                waiting=false
+                
 				$id('ifilename').innerHTML=filename.substr(0,20);
 				$id('ifilename').style.visibility='visible';
 				
 				//document.querySelector('input[name="material"]:checked').value,$id('pden').value,$id('suview').value
-				
-				ppp = re_real_price(document.querySelector('input[name="material"]:checked').value,'INR',$id('suview').value) ;
-				$id('esprice').value = ppp;
-				$id('esprice1').innerHTML = ppp;
+                
+				//var ppp = re_real_price();
+				//$id('esprice').value = ppp;
+                //$id('esprice1').innerHTML = ppp;
+
+                function re_real_price() {
+
+                    var vl = vol.toFixed(2);
+                    
+                    var price = $id('esprice1').innerHTML;
+
+                        switch (document.getElementById('material1').value) {
+                            case 'FDM' : 
+                                var fromp = 15* vl;
+                                var topp  = 35* vl;
+                                    price = 'USD '+ Math.round(fromp.toFixed(2)) + ' to USD ' +	Math.round(topp.toFixed(2));
+                                    break;    
+                            case 'SLA' : 
+                                var fromp = 120* vl;
+                                var topp  = 240* vl;
+                                    price = 'USD '+ Math.round(fromp.toFixed(2)) + ' to USD ' +	Math.round(topp.toFixed(2));
+                                    break;
+                            case 'SLS' :
+                                var fromp = 90* vl;
+                                var topp  = 180* vl;
+                                    price = 'USD '+ Math.round(fromp.toFixed(2)) + ' to USD ' +	Math.round(topp.toFixed(2));
+                                    break;
+
+                        }
+                    }
+            	
 				//setTimeout(function(){$id('statswrap').style.width='280px';}, 500);
 								
 								
 				//$id('cjcwrap').addEventListener('dragover', handleDragOver, false);
 				//$id('cjcwrap').addEventListener('drop', handleFileDrop, false);
-				if(!examp)
+				/*if(!examp)
 				{
 					$id('priceesdiv1').style.display = "none";
 					$id('priceesdiv').style.display = "block";				
@@ -532,9 +561,8 @@ cufon cufontext { text-transform:lowercase !important}
 				{
 					$id('priceesdiv').style.display = "none";
 					$id('priceesdiv1').style.display = "block";
-				}	
+				}	*/
 				
-				waiting=false;
 			}
 			
 			
@@ -672,7 +700,6 @@ cufon cufontext { text-transform:lowercase !important}
 				switch_view('drag');
 				if (mesh!=null) {scene.remove(mesh);mesh=null;}
 				$id('fileselect').value='';
-				document.getElementById("dumm").reset();
 			}
 			
 			function prepare_upload_file()
@@ -758,27 +785,26 @@ cufon cufontext { text-transform:lowercase !important}
 				$id('flvolume').value = $id('ivol').innerHTML;				
 			}
 			
-			function re_cal_price()
+			/*function re_cal_price()
 			{
 				//$id('met').value = document.querySelector('input[name="rate"]:checked').value;
 				//$id('cur').value = $id('met').value;
 				//$id('len').value = $id('met').value;
 				
-				
 				if($('#priceesdiv').css('display') == 'block')
 				{
-					ppp = re_real_price(document.querySelector('input[name="material"]:checked').value,$id('pden').value,$id('suview').value) ;
+					ppp = re_real_price() ;
 					$id('esprice').value =  ppp;
 				}
 				else if($('#priceesdiv1').css('display') == 'block')
 				{
-					ppp = re_real_price(document.querySelector('input[name="material"]:checked').value,$id('pden1').value,$id('suview').value) ;
+					ppp = re_real_price() ;
 					$id('esprice1').innerHTML = ppp;	
 				}
 					
 					
 				//$id('esprice1').innerHTML = ppp;
-			}
+			}*/
 			
 			function re_cal_price1()
 			{
@@ -791,121 +817,6 @@ cufon cufontext { text-transform:lowercase !important}
 				
 			}
 			
-			function re_real_price(me,cu,le)
-			{
-				var vl = vol.toFixed(2);
-				
-				switch(me){
-					case 'FDM' : 
-							if( le == 3)
-							{
-								fromp = 15* eval(vl);
-								topp   = 35* eval(vl);																						
-							}
-							else if( le == 1)
-							{
-								fromp = (15* eval(vl))/1000;
-								topp   = (35* eval(vl))/1000;
-							}
-							else if(le == 2)
-							{
-								fromp = 15* eval(vl) * 16.387;
-								topp   = 35* eval(vl)* 16.387;
-							}
-							
-								
-							if(cu == 'INR')
-									return 'INR '+ Math.round(fromp.toFixed(2)) + ' to INR ' +	Math.round(topp.toFixed(2));
-								else if(cu == 'USD')
-								{
-									fromp1 = eval(fromp/66);
-									topp1   = eval(topp/66);
-								
-									return 'USD '+ Math.round(fromp1.toFixed(2)) + ' to USD ' +	Math.round(topp1.toFixed(2));	
-								}
-								else if(cu == 'EUR')
-								{
-									fromp2 = eval(fromp/74);
-									topp2   = eval(topp/74);
-								
-									return 'EUR '+ Math.round(fromp2.toFixed(2)) + ' to EUR ' +	Math.round(topp2.toFixed(2));	
-								}											
-								
-						break;
-					case 'SLA' : 
-							
-							if( le == 3)
-							{
-								fromp = 120* eval(vl);
-								topp   = 240* eval(vl);																						
-							}
-							else if( le == 1)
-							{
-								fromp = (120* eval(vl))/1000;
-								topp   = (240* eval(vl))/1000;
-							}
-							else if(le == 2)
-							{
-								fromp = 120* eval(vl) * 16.387;
-								topp   = 240* eval(vl)* 16.387;
-							}
-							
-								
-							if(cu == 'INR')
-									return 'INR '+ Math.round(fromp.toFixed(2)) + ' to INR ' +	Math.round(topp.toFixed(2));
-								else if(cu == 'USD')
-								{
-									fromp1 = eval(fromp/66);
-									topp1   = eval(topp/66);
-								
-									return 'USD '+ Math.round(fromp1.toFixed(2)) + ' to USD ' +	Math.round(topp1.toFixed(2));	
-								}
-								else if(cu == 'EUR')
-								{
-									fromp2 = eval(fromp/74);
-									topp2   = eval(topp/74);
-								
-									return 'EUR '+ Math.round(fromp2.toFixed(2)) + ' to EUR ' +	Math.round(topp2.toFixed(2));	
-								}
-								
-						break;
-					case 'SLS' : 
-							if( le == 3)
-							{
-								fromp = 90* eval(vl);
-								topp   = 180* eval(vl);																						
-							}
-							else if( le == 1)
-							{
-								fromp = (90* eval(vl))/1000;
-								topp   = (180* eval(vl))/1000;
-							}
-							else if(le == 2)
-							{
-								fromp = 90* eval(vl) * 16.387;
-								topp   = 180* eval(vl)* 16.387;
-							}
-							
-								
-							if(cu == 'INR')
-									return 'INR '+ Math.round(fromp.toFixed(2)) + ' to INR ' +	Math.round(topp.toFixed(2));
-								else if(cu == 'USD')
-								{
-									fromp1 = eval(fromp/66);
-									topp1   = eval(topp/66);
-								
-									return 'USD '+ Math.round(fromp1.toFixed(2)) + ' to USD ' +	Math.round(topp1.toFixed(2));	
-								}
-								else if(cu == 'EUR')
-								{
-									fromp2 = eval(fromp/74);
-									topp2   = eval(topp/74);
-								
-									return 'EUR '+ Math.round(fromp2.toFixed(2)) + ' to EUR ' +	Math.round(topp2.toFixed(2));	
-								}
-						break;
-				}
-			}
 			
 					</script>
 
@@ -1003,23 +914,26 @@ cufon cufontext { text-transform:lowercase !important}
 								<td id="ifilename" style="width:50%;"></td>
 							</tr>
 							<tr style="vertical-align:bottom;">
-								<th>Size (Bounding Box)</th>
+								<th>Bounding Box (mm)</th>
 								<td id="isize" style="width:50%;"></td>
 							</tr>
 							<tr>
 								<th>Volume (<span id="vunits"></span>)<sup>3</sup></th>
 								<td id="ivol" style="text-align:left;"></td>
 							</tr>
-                            <tr>
+                            <tr style="display:none">
                             	<th>Units</th>
                                 <td>
-                                	<select id="suview" name="suview" onChange="set_view_units(this.value);re_cal_price()"><option value="1">mm</option><option value="2">in</option><option value="3">cm</option></select>
+                                	<select id="suview" name="suview" onChange="set_view_units(this.value);re_cal_price()">
+                                        <option value="1">mm</option>
+                                        <option value="2">in</option>
+                                        <option value="3">cm</option>
+                                    </select>
                                 </td>
                             </tr>
 							<tr style="display:none">
 								<th>File units</th>
 								<td>
-									
                                     <input type="radio" id="rmm" onClick="set_file_units(1);" name="runits" value="0" checked>mm<br>
 									<input type="radio" id="rin" onClick="set_file_units(2);" name="runits" value="1">in<br>
                                     <input type="radio" id="rcm" onClick="set_file_units(3);" name="runits" value="2">cm<br>
@@ -1049,7 +963,7 @@ cufon cufontext { text-transform:lowercase !important}
 							<tr>
 								<th>Color</th>
 								<td id="cpal" style="width:50%;">
-																	<!--<div class="cbar" id="black_color" onClick="set_color(this,'#000000');" style="background:#000000;"></div>
+									<!--<div class="cbar" id="black_color" onClick="set_color(this,'#000000');" style="background:#000000;"></div>
 									<div class="cbar" id="white_color" onClick="set_color(this,'#FFFFFF');" style="background:#FFFFFF;"></div>
 									<div class="cbar" id="blue_color" onClick="set_color(this,'#0000FF');" style="background:#0000FF;"></div>
 									<div class="cbar" id="green_color" onClick="set_color(this,'#00FF00');" style="background:#00FF00;"></div>
@@ -1065,7 +979,7 @@ cufon cufontext { text-transform:lowercase !important}
 									<div class="cbar" id="darkblue_color" onClick="set_color(this,'#102075');" style="background:#102075;"></div>
 									<div class="cbar" id="brown_color" onClick="set_color(this,'#654321');" style="background:#654321;"></div>
 													
-												</td>
+								</td>
 							</tr>
 							<tr>
 								<th>Rotation</th>
@@ -1079,13 +993,17 @@ cufon cufontext { text-transform:lowercase !important}
 						</table>
 					</div>
 
-					<div class="cinfo">
+					<div class="cinfo" id="material">
 						<span style="color:#2aafe8; font-size:20px">Choose Material</span>
                         <table>
                         	<tr>
-                            	<td style="width:100%">                                    
-                                    <input type="radio" name="material" value="FDM" title="Thermoplastics like PLA, ABS, Nylon, Flexible ABS etc" onClick="re_cal_price()" checked>&nbsp;FDM &nbsp;&nbsp; <input type="radio" name="material" value="SLA" onClick="re_cal_price()" title="Resin variants including transparent, castable, opaque, tough etc">&nbsp;SLA &nbsp;&nbsp;<input type="radio" name="material" value="SLS" onClick="re_cal_price()" title="PA Nylon powder">SLS &nbsp;
-                                    </td>
+                                <td style="width:100%">  
+                                    <select id="material1" name="resin" onChange="re_real_price(this.value)">                                 
+                                        <option id="FDM" value="FDM">FDM</option> 
+                                        <option id="SLA" value="SLA">SLA</option>
+                                        <option id="SLS" value="SLS">SLS</option> 
+                                    </select>  
+                                </td>
                             </tr>
                         </table>
                         
@@ -1099,22 +1017,16 @@ cufon cufontext { text-transform:lowercase !important}
 				
 				</div>
                 
-                <div class="cinfo" id="priceesdiv">
+                <div class="cinfo"> <!-- id="priceesdiv" -->
 						<span style="color:#2aafe8; font-size:20px">Estimated  Price</span>
                         <table>
+                            <tr>
                                 <td id="esprice1" style="color:rgb(30, 255, 0)"></td>
                             </tr>
-                            <input type="hidden" value="" id="esprice"  name="esprice"/>   
+                            <!--<input type="hidden" value="" id="esprice"  name="esprice"/> -->  
                         </table>
 						
                 </div>
-                
-                <!-- Need this in order for Upload New STL to work -->
-                <div class="cinfo" id="priceesdiv1" style="display:none">
-						
-                </div>
-                <!-- No idea why but it works -->
-                
 			</div>
 						
 						
@@ -1258,7 +1170,7 @@ $('input[type=radio][name=interest]').change(function() {
 				controls.autoRotate=true;
 			else
 			{
-				 $id('rrotate2').checked=true; 				controls.autoRotate=false;
+				 $id('rrotate2').checked=true; controls.autoRotate=false;
 			}
 			
 			animate();
