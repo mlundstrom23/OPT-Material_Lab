@@ -41,7 +41,7 @@
 </script>
 <!DOCTYPE html>
 
-<html lang="en" style="background: url(img/OptImage1.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-color: #282b2e">
+<html lang="en" style="background-color: #17181a">
         <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>OPT_Material Lab - OPT Industries Inc.</title>
@@ -327,14 +327,18 @@ cufon cufontext { text-transform:lowercase !important}
 			
 			function recalc_units()
 			{
-				if (view_units==1)
-					set_vol_and_size(vol, xsize, ysize, zsize);
-				else if (view_units==2)
+				if (view_units==1) {
+                    set_vol_and_size(vol, xsize, ysize, zsize);
+                    set_printing_time(zsize);
+                } else if (view_units==2) {
 					//file in mm, view in inches
-					set_vol_and_size(vol, xsize, ysize, zsize);
-				else
+                    set_vol_and_size(vol, xsize, ysize, zsize);
+                    set_printing_time(zsize);
+                } else {
 					//file in inches, view in mm
-					set_vol_and_size(vol, xsize, ysize, zsize);
+                    set_vol_and_size(vol, xsize, ysize, zsize);
+                    set_printing_time(zsize);
+                }    
 			}
 			
 			function do_resize()
@@ -366,8 +370,6 @@ cufon cufontext { text-transform:lowercase !important}
 				e.preventDefault();
 				e.dataTransfer.dropEffect = 'copy';			
 			}
-			
-		
 			
 			function handleFileDrop(e)
 			{
@@ -430,7 +432,8 @@ cufon cufontext { text-transform:lowercase !important}
 				cancel_download=false;
 				waiting=false;
 				return false;
-			}
+            }
+            
 			function baseName(str)
 			{
 			   var base = new String(str).substring(str.lastIndexOf('/') + 1); 
@@ -515,57 +518,41 @@ cufon cufontext { text-transform:lowercase !important}
 				$id('ifilename').innerHTML=filename.substr(0,20);
 				$id('ifilename').style.visibility='visible';
 				
-				//document.querySelector('input[name="material"]:checked').value,$id('pden').value,$id('suview').value
-                
-                //const x = document.getElementById('material1')
-				//var ppp = re_real_price();
-				//$id('esprice').value = ppp;
-                //$id('esprice1').innerHTML = ppp;
-                
-                
-            	
-				//setTimeout(function(){$id('statswrap').style.width='280px';}, 500);
-								
-								
-				//$id('cjcwrap').addEventListener('dragover', handleDragOver, false);
-				//$id('cjcwrap').addEventListener('drop', handleFileDrop, false);
-				/*if(!examp)
-				{
-					$id('priceesdiv1').style.display = "none";
-					$id('priceesdiv').style.display = "block";				
-				}	
-				else
-				{
-					$id('priceesdiv').style.display = "none";
-					$id('priceesdiv1').style.display = "block";
-				}	*/
-				
             }
             
+            // Function for Material Price dropdown
 			function re_real_price() {
-                    var x = document.getElementById('material1').value;
+                var x = document.getElementById('material1').value;
                 
-                    var vl = vol.toFixed(2);
+                var vl = vol.toFixed(2);
                     
-                        switch (x) {
-                            case 'FDM' : 
-                                var fromp = 15* vl;
-                                var topp  = 35* vl;
-                                    document.getElementById('esprice1').innerHTML = 'USD '+ Math.round(fromp.toFixed(2)) + ' to USD ' +	Math.round(topp.toFixed(2));
-                                    break;    
-                            case 'SLA' : 
-                                var fromp = 120* vl;
-                                var topp  = 240* vl;
-                                    document.getElementById('esprice1').innerHTML = 'USD '+ Math.round(fromp.toFixed(2)) + ' to USD ' +	Math.round(topp.toFixed(2));
-                                    break;
-                            case 'SLS' :
-                                var fromp = 90* vl;
-                                var topp  = 180* vl;
-                                    document.getElementById('esprice1').innerHTML = 'USD '+ Math.round(fromp.toFixed(2)) + ' to USD ' +	Math.round(topp.toFixed(2));
-                                    break;
-
-                        }
+                    switch (x) {
+                        case 'PCLG' : 
+                            var price = 59.90 * (vl/1000000);
+                                document.getElementById('esprice1').innerHTML = '$' + price.toFixed(2) + ' USD';
+                                break;    
+                        case 'PCTR' : 
+                            var price = 69.98 * (vl/1000000);
+                                document.getElementById('esprice1').innerHTML = '$' + price.toFixed(2) + ' USD';
+                                break;
+                        case 'P3D' :
+                            var price = 76.90 * (vl/1000000);
+                                document.getElementById('esprice1').innerHTML = '$' + price.toFixed(2) + ' USD';
+                                break;
+                        case 'BCO' :
+                            var price = 138.69 * (vl/1000000);
+                                document.getElementById('esprice1').innerHTML = '$' + price.toFixed(2) + ' USD';
+                                break;  
+                        case 'BCx5' :
+                            var price = 142.99 * (vl/1000000);
+                                document.getElementById('esprice1').innerHTML = '$' + price.toFixed(2) + ' USD';
+                                break;   
+                        case 'ZRS' :
+                            var price = 345.99 * (vl/1000000);
+                                document.getElementById('esprice1').innerHTML = '$' + price.toFixed(2) + ' USD';
+                                break;                   
                     }
+                }
 			
 			
 			function set_color_by_name(color, is_bg_color)
@@ -781,46 +768,29 @@ cufon cufontext { text-transform:lowercase !important}
 			{
 				var p=view_units==2?0:0;
 				$id('ivol').innerHTML=numberWithCommas(vol.toFixed(p));
-				$id('isize').innerHTML=numberWithCommas(xsize.toFixed(p))+' x '+numberWithCommas(ysize.toFixed(p))+' x '+numberWithCommas(zsize.toFixed(p));
+                $id('isize').innerHTML=numberWithCommas(xsize.toFixed(p))+' x '+numberWithCommas(ysize.toFixed(p))+' x '+numberWithCommas(zsize.toFixed(p));
 				$id('flsize').value = $id('isize').innerHTML;
 				$id('flvolume').value = $id('ivol').innerHTML;				
-			}
-			
-			/*function re_cal_price()
-			{
-				//$id('met').value = document.querySelector('input[name="rate"]:checked').value;
-				//$id('cur').value = $id('met').value;
-				//$id('len').value = $id('met').value;
-				
-				if($('#priceesdiv').css('display') == 'block')
-				{
-					ppp = re_real_price() ;
-					$id('esprice').value =  ppp;
-				}
-				else if($('#priceesdiv1').css('display') == 'block')
-				{
-					ppp = re_real_price() ;
-					$id('esprice1').innerHTML = ppp;	
-				}
-					
-					
-				//$id('esprice1').innerHTML = ppp;
-			}*/
-			
-			function re_cal_price1()
-			{
-				//$id('met').value = document.querySelector('input[name="rate"]:checked').value;
-				//$id('cur').value = $id('met').value;
-				//$id('len').value = $id('met').value;
-				
-				
-				//$id('esprice').value =  ppp;
-				
-			}
+            }
+            
+            function set_printing_time(zsize)
+            {
+                var p=view_units==2?0:0;
+                var slider = document.getElementById("time");
+                var output = document.getElementById("demo");
+                var output1 = document.getElementById("itime");
+                output1.innerHTML = (slider.value/10)*numberWithCommas(zsize.toFixed(p)) + " seconds"
+                output.innerHTML = (slider.value/10) + " mm/sec";
+                        
+                slider.oninput = function() {
+                    output1.innerHTML = (this.value/10)*numberWithCommas(zsize.toFixed(p)) + " seconds";
+                    output.innerHTML = (this.value/10) + " mm/sec";
+                }
+                $id('fltime').value = $id('itime').innerHTML;
+            }
 			
 			
-					</script>
-
+		</script>
 
 
 </head>
@@ -875,6 +845,7 @@ cufon cufontext { text-transform:lowercase !important}
     <input type="hidden" name="flsize" id="flsize" value="" />
     <input type="hidden" name="flvolume" id="flvolume" value="" />
     <input type="hidden" name="flvunits" id="flvunits" value="" />
+    <input type="hidden" name="fltime" id="fltime" value="" />
 	<div id="main_content" class="container_12">
 		<!-- Start Video -->
 		<div class="grid_6 featured">
@@ -971,14 +942,11 @@ cufon cufontext { text-transform:lowercase !important}
                                     <div class="cbar" id="yellow_color" onClick="set_color(this,'#FFFF00');" style="background:#FFFF00;"></div>
                                     <div class="cbar" id="pink_color" onClick="set_color(this,'#FF00FF');" style="background:#FF00FF;"></div>
                                     -->
-									<div class="cbar" id="red_color" onClick="set_color(this,'#FF0000');" style="background:#FF0000;"></div>
+                                    <div class="cbar" id="white_color" onClick="set_color(this,'#FFFFFF');" style="background:#FFFFFF;"></div>
+									<div class="cbar" id="red_color" onClick="set_color(this,'#ff0000');" style="background:#ff0000;"></div>
 									
 									<div class="cbar" id="gray_color" onClick="set_color(this,'#909090');" style="background:#909090;border:2px solid #012101;"></div>
-									<div class="cbar" id="azure_color" onClick="set_color(this,'#00FFFF');" style="background:#00FFFF;"></div>
-									
-									<div class="cbar" id="purple_color" onClick="set_color(this,'#703487');" style="background:#703487;"></div>
-									<div class="cbar" id="darkblue_color" onClick="set_color(this,'#102075');" style="background:#102075;"></div>
-									<div class="cbar" id="brown_color" onClick="set_color(this,'#654321');" style="background:#654321;"></div>
+									<div class="cbar" id="azure_color" onClick="set_color(this,'#455af7');" style="background:#455af7;"></div>
 													
 								</td>
 							</tr>
@@ -992,7 +960,26 @@ cufon cufontext { text-transform:lowercase !important}
 								</td>
 							</tr>
 						</table>
-					</div>
+                    </div>
+
+                    <div class="cinfo"> 
+                        <span style="color:#2aafe8; font-size:20px ">Printing Time</span>
+                            <table>
+                                <tr>
+                                    <th>Estimated printing time: </th>
+                                    <td id="itime" style="width:50%;"></td>
+                                </tr>
+                                    
+                                <tr>
+                                    
+                                    <td> 
+                                        <input type="range" id="time" min="1" max="4" value="1">
+                                        <!--<p><span id="demo"></span> mm per second</p>-->
+                                    </td>
+                                </tr> 
+                                <th><span id="demo"></span></th>
+                            </table>
+                    </div>
 
 					<div class="cinfo" id="material">
 						<span style="color:#2aafe8; font-size:20px">Material</span>
@@ -1000,10 +987,13 @@ cufon cufontext { text-transform:lowercase !important}
                         	<tr>
                                 <td style="width:100%">  
                                     <select id="material1" name="resin" onChange="re_real_price(this.value)">
-                                        <option id="choose">Choose one</option>                                 
-                                        <option id="FDM" value="FDM">FDM</option> 
-                                        <option id="SLA" value="SLA">SLA</option>
-                                        <option id="SLS" value="SLS">SLS</option> 
+                                        <option id="choose">Choose one:</option>                                 
+                                        <option id="PCLG" value="PCLG">PrimaCreator Value UV/DLP Resin - Light Grey - $59.90/Liter</option> 
+                                        <option id="PCTR" value="PCTR">PrimaCreator Value UV/DLP Resin - Transparent Red - $69.98/Liter</option>
+                                        <option id="P3D" value="P3D">Photocentric 3D UV DLP Firm Resin - Grey - $76.90/Liter</option>
+                                        <option id="BCO" value="BCO">BlueCast Original DLP Resin - Blue - $138.69/Liter</option> 
+                                        <option id="BCx5" value="BCx5">BlueCast x5 Resin - $142.99/Liter</option>
+                                        <option id="ZRS" value="ZRS">Zortrax Raydent Surgical Guide Resin - $345.99/Liter</option>
                                     </select>  
                                 </td>
                             </tr>
@@ -1019,15 +1009,13 @@ cufon cufontext { text-transform:lowercase !important}
 				
 				</div>
                 
-                <div class="cinfo"> <!-- id="priceesdiv" -->
-						<span style="color:#2aafe8; font-size:20px">Estimated  Price</span>
+                <div class="cinfo"> 
+					<span style="color:#2aafe8; font-size:20px">Estimated  Price</span>
                         <table>
                             <tr>
                                 <td id="esprice1" style="color:rgb(30, 255, 0)"></td>
-                            </tr>
-                            <!--<input type="hidden" value="" id="esprice"  name="esprice"/> -->  
+                            </tr> 
                         </table>
-						
                 </div>
 			</div>
 						
@@ -1055,7 +1043,7 @@ cufon cufontext { text-transform:lowercase !important}
 		
     </div><!-- Footer Bottom END --> 
     <!-- Clearfix -->    
-	<div class="clear"></div>
+    <div class="clear"></div>
 
 		
 <!-- IE fix -->
