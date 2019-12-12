@@ -8,7 +8,7 @@
 /*
  * jQuery helper plugin for examples and tests
  */
-(function( $ ){
+(function( $ ) {
     $.fn.html2canvas = function(options) {
         if (options && options.profile && window.console && window.console.profile) {
             console.profile();
@@ -27,14 +27,14 @@
             if (options && options.profile && window.console && window.console.profileEnd) {
                 console.profileEnd();
             }
-            $canvas.css({
+            $canvas.css( {
                 position: 'absolute',
                 left: 0,
                 top: 0
             }).appendTo(document.body);
             $canvas.siblings().toggle();
 
-            $(window).click(function(){
+            $(window).click(function() {
                 $canvas.toggle().siblings().toggle();
                 throwMessage("Canvas Render " + ($canvas.is(':visible') ? "visible" : "hidden"));
             });
@@ -53,17 +53,17 @@
 
         html2obj = html2canvas(this, options);
 
-        function throwMessage(msg,duration){
+        function throwMessage(msg,duration) {
             window.clearTimeout(timeoutTimer);
-            timeoutTimer = window.setTimeout(function(){
-                $message.fadeOut(function(){
+            timeoutTimer = window.setTimeout(function() {
+                $message.fadeOut(function() {
                     $message.remove();
                     $message = null;
                 });
             },duration || 2000);
             if ($message)
                 $message.remove();
-            $message = $('<div />').html(msg).css({
+            $message = $('<div />').html(msg).css( {
                 margin:0,
                 padding:10,
                 background: "#000",

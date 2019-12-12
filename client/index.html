@@ -1,48 +1,9 @@
+		<script>
+		</script>
 
-<script type="text/javascript">
-	function validation()
-	{
-		var name  = document.getElementById('name');
-		var email = document.getElementById('email');
-		var mobile = document.getElementById('mobile');
-		
-
-		if(name.value.length==0 || name.value == 'Your Name*') {
-			alert("Please enter your name");
-			return false;	 
-		} 
-		if(mobile.value.length==0 || mobile.value == 'Your Mobile*') {
-			alert("Please enter your mobile number");
-			return false;	 
-		} 		
-		if(email.value.length == 0 || email.value == 'Your Email*') {
-			alert("Please enter your e-mail id");
-			return false;
-		}
-		else if(!validateEmail(email.value)) {
-			alert("Invalid e-mail id");
-			return false;
-	 	}
-		
-		
-		
-	}
-	
-	function validateEmail(email){
-		var emailRegEx = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-		str = email;
-		if(str.match(emailRegEx)){
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-</script>
 <!DOCTYPE html>
 
-<html lang="en" >
-        <html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
     <head>
         <title>OPT_Material Lab - OPT Industries Inc.</title>
         <meta charset="utf-8">
@@ -50,12 +11,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
-        <link rel="stylesheet" type="text/css" href="css/fancybox.css" media="screen" />
         <link rel="stylesheet" href="css/960.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
 	    <link rel="stylesheet" href="css/text.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="css/ui.totop.css" type="text/css" media="screen,projection" />
-        <link rel="stylesheet" href="css/skins/style_blue.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="css/background.css" type="text/css" media="screen" />
 
         <!-- Jquery-->
@@ -64,37 +23,23 @@
         <script type="text/javascript" src="js/jquery.plugin.html2canvas.js"></script>
 
         <script type="text/javascript" src="js/jquery.mousewheel-3.0.4.pack.js"></script>
-        <script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
 		<script type="text/javascript" src="js/jquery.ui.totop.js"></script>
 		
-		<!-- JSPDF -->
+		<!-- jsPDF -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
-        
-        <script type="text/javascript">
-        $(document).ready(function() {
-			/*
-			var defaults = {
-	  			containerID: 'moccaUItoTop', // fading element id
-				containerHoverClass: 'moccaUIhover', // fading element hover class
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-	 		};
-			*/
-			
-			$().UItoTop({ easingType: 'easeOutQuart' });
-			
-			
-			
-		});
 		
-	</script>
-<style>
-h1 cufon canvas { height:40px !important}
-h2 cufon canvas { height:33px !important}
-cufon canvas { height:20px !important}
-cufon cufontext { text-transform:lowercase !important}
-</style>
-
+		<!--<script type="text/javascript">
+			$(document).ready(function() {
+				
+				/*var defaults = {
+					containerID: 'moccaUItoTop', // fading element id
+					containerHoverClass: 'moccaUIhover', // fading element hover class
+					scrollSpeed: 1200,
+					easingType: 'linear' 
+				};*/
+				$().UItoTop({ easingType: 'easeOutQuart' });
+			});
+		</script>-->
 		
 		<style type="text/css">
 			html {margin: 0;}
@@ -161,14 +106,14 @@ cufon cufontext { text-transform:lowercase !important}
 			}
 		</style>
 
-				<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		ga('create', 'UA-54015102-1', 'auto');
-		ga('send', 'pageview');
+			ga('create', 'UA-54015102-1', 'auto');
+			ga('send', 'pageview');
 		</script>
 		
 		<style>
@@ -202,74 +147,6 @@ cufon cufontext { text-transform:lowercase !important}
 			}
 			
 		</style>
-					
-	<script type="text/javascript">
-	
-	function validation()
-	{
-		var name  = document.getElementById('name');
-		var email = document.getElementById('email');
-
-		var sub = true;
-		
-		if(name.value.length==0 || name.value == 'Your Name') {
-			alert("Please enter your name");
-			sub = false;	 
-		} 
-		if(mobile.value.length==0 || mobile.value == 'Your Mobile') {
-			alert("Please enter your mobile number");
-			sub = false;	 
-		} 		
-		if(email.value.length == 0 || email.value == 'Your Email') {
-			alert("Please enter your e-mail id");
-			sub = false;
-		}
-		else if(!validateEmail(email.value)) {
-			alert("Invalid e-mail id");
-			sub = false;
-	 	}
-		
-		return sub;
-		
-	}
-	
-	function validateEmail(email){
-		var emailRegEx = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-		str = email;
-		if(str.match(emailRegEx)){
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-	
-	function sendestimate()
-	{
-		if(validation())
-		{
-			//$("#dumm").submit('contactus_do.php');
-			 $('#cjcwrap').html2canvas({
-        			onrendered: function (canvas) {
-            //Set hidden field's value to image data (base-64 string)
-            $('#img_val').val(canvas.toDataURL("image/png"));
-			var fllname = baseName($('#flname').val());
-			
-           	$.ajax({
-				  type: "POST",
-				  async : false,
-				  url: "save.php",
-				  data: { imdata: $('#img_val').val() , name: fllname }
-			});
-  
-        }  });
-			document.getElementById("dumm").action = "contactus_do.php";
-			document.getElementById("dumm").submit();
-							
-		}
-			
-	}
-</script>
 
 		<script src="stl_viewer/three.min.js"></script>
 		<script src="stl_viewer/webgl_detector.js"></script>
@@ -317,7 +194,6 @@ cufon cufontext { text-transform:lowercase !important}
 			var triangles_count=0;
 			var model_filename='';
 			var view_units=1; //mm
-			var file_units=1; //mm
 			var bg_color=0xffffff;
 			
 			function $id(id)
@@ -331,12 +207,6 @@ cufon cufontext { text-transform:lowercase !important}
 				$id("vunits").innerHTML=v=="1"?"mm":v=="2" ? "in" : "cm";
 				$id("flvunits").value = $id("vunits").innerHTML;
 				//setCookie("units", v=="1"?"mm":v=="2" ? "in" : "cm", 1000);
-				//recalc_units();
-			}
-			
-			function set_file_units(v)
-			{
-				file_units=v;
 				//recalc_units();
 			}
 			
@@ -429,8 +299,7 @@ cufon cufontext { text-transform:lowercase !important}
 						
 					default:
 						return false;
-				}
-				
+				}	
 			}
 			
 			function switch_view(v)
@@ -472,7 +341,6 @@ cufon cufontext { text-transform:lowercase !important}
 				
 				if (typeof vf_data === 'string')
 				{
-					
 					switch_view('drag');
 					waiting=false;
 					return;
@@ -522,26 +390,25 @@ cufon cufontext { text-transform:lowercase !important}
 				triangles_count=geo.faces.length;
 				model_filename=filename;
 				$id('flname').value = model_filename;
-				 var fllname = baseName(model_filename);
-				 $id('flbname').value = fllname + '.png' ;
-				
-				guess_file_units(xsize,ysize,zsize);
+				var fllname = baseName(model_filename);
+				$id('flbname').value = fllname + '.png' ;
+			
                 recalc_units();
                 
                 waiting=false
                 
 				$id('ifilename').innerHTML=filename.substr(0,20);
 				$id('ifilename').style.visibility='visible';
-				
             }
             
             // Function for Material Price dropdown
-			function re_real_price() {
+			function re_real_price() 
+			{
                 var x = document.getElementById('material1').value;
-                
                 var vl = vol.toFixed(2);
                     
-                    switch (x) {
+					switch (x) 
+					{
                         case 'PCLG' : 
                             var price = 59.90 * (vl/1000000);
                                 document.getElementById('esprice1').innerHTML = '$' + price.toFixed(2) + ' USD';
@@ -568,7 +435,6 @@ cufon cufontext { text-transform:lowercase !important}
                                 break;                   
                     }
                 }
-			
 			
 			function set_color_by_name(color, is_bg_color)
 			{
@@ -610,7 +476,7 @@ cufon cufontext { text-transform:lowercase !important}
 					return;
 				}
 				
-								c = $id('cpal').getElementsByTagName("div");
+				c = $id('cpal').getElementsByTagName("div");
 				
 				var i=c.length;	
 				while(i--)
@@ -696,7 +562,6 @@ cufon cufontext { text-transform:lowercase !important}
 				download_from_local('examples/'+ename, ename);
 			}
             
-            
 			function reset()
 			{
 				if (waiting) return;
@@ -719,7 +584,7 @@ cufon cufontext { text-transform:lowercase !important}
 			{
 				const pdf = new jsPDF('p', 'mm', [605, 665])
 
-				// Get images from canvas
+				// Get image from canvas
 				var canvas = document.querySelector('#cjcwrap canvas');
 				var previewImage = canvas.toDataURL("image/png");
 
@@ -832,21 +697,6 @@ cufon cufontext { text-transform:lowercase !important}
 				return "";
 			}			
 			
-			function guess_file_units(xsize,ysize,zsize)
-			{
-				//try to guess the file's units (mm or inch?)
-				if ((xsize<1)&&(ysize<1)&&(zsize<1))
-				{
-					file_units=2;
-					rin.checked=true;
-				}
-				else
-				{
-					file_units=1;
-					rmm.checkd=true;
-				}
-			}
-			
 			function set_vol_and_size(vol,xsize,ysize,zsize)
 			{
 				var p=view_units==2?0:0;
@@ -855,7 +705,8 @@ cufon cufontext { text-transform:lowercase !important}
 				$id('flsize').value = $id('isize').innerHTML;
 				$id('flvolume').value = $id('ivol').innerHTML;				
             }
-            
+			
+			// Getting values for printing time
             function set_printing_time(zsize)
             {
                 var p=view_units==2?0:0;
@@ -871,10 +722,7 @@ cufon cufontext { text-transform:lowercase !important}
                 }
                 $id('fltime').value = $id('itime').innerHTML;
             }
-			
-			
 		</script>
-
 
 </head>
 
@@ -950,9 +798,7 @@ cufon cufontext { text-transform:lowercase !important}
             <div style="width:100%; margin-top:10px">
                  	<div class="cact" onClick="generate_pdf();" style="float:left"><span>Download as PDF</span></div>
                     <div style="cursor:pointer;text-decoration:underline;color:#fcfcfc; float:right" onClick="reset();">Upload New STL</div>
-            </div>
-            
-                       
+            </div>           
 		</div><!-- Video END -->		
 		<!-- Start Model Info Table -->
 		<div class="grid_6" style="margin-left:10px; width:370px !important">
@@ -976,27 +822,8 @@ cufon cufontext { text-transform:lowercase !important}
 								<th>Volume (<span id="vunits"></span>)<sup>3</sup></th>
 								<td id="ivol" style="text-align:left; padding-left:15px;"></td>
 							</tr>
-                            <tr style="display:none">
-                            	<th>Units</th>
-                                <td>
-                                	<select id="suview" name="suview" onChange="set_view_units(this.value);re_cal_price()">
-                                        <option value="1">mm</option>
-                                        <option value="2">in</option>
-                                        <option value="3">cm</option>
-                                    </select>
-                                </td>
-                            </tr>
-							<tr style="display:none">
-								<th>File units</th>
-								<td>
-                                    <input type="radio" id="rmm" onClick="set_file_units(1);" name="runits" value="0" checked>mm<br>
-									<input type="radio" id="rin" onClick="set_file_units(2);" name="runits" value="1">in<br>
-                                    <input type="radio" id="rcm" onClick="set_file_units(3);" name="runits" value="2">cm<br>
-								</td>
-							</tr>
 						</table>
 					</div>
-					
 					
 					<div class="cinfo">
 						<span style="color:#2aafe8; font-size:20px">Options</span>
@@ -1009,9 +836,6 @@ cufon cufontext { text-transform:lowercase !important}
                                         <option value="1">Smooth Shading</option>
                                         <option value="2">Wireframe</option>
                                     </select>
-									<!--<input type="radio" id="rshade1" onClick="set_shading(0);" name="rshade" value="0" checked>Flat Shading<br>
-									<input type="radio" id="rshade2" onClick="set_shading(1);" name="rshade" value="1">Smooth Shading<br>
-									<input type="radio" id="rshade3" onClick="set_shading(2);" name="rshade" value="2">Wireframe<br>-->
 								</td>
 							</tr>
 							<tr>
@@ -1026,10 +850,8 @@ cufon cufontext { text-transform:lowercase !important}
                                     -->
                                     <div class="cbar" id="white_color" onClick="set_color(this,'#FFFFFF');" style="background:#FFFFFF;"></div>
 									<div class="cbar" id="red_color" onClick="set_color(this,'#ff0000');" style="background:#ff0000;"></div>
-									
 									<div class="cbar" id="gray_color" onClick="set_color(this,'#909090');" style="background:#909090;"></div>
-									<div class="cbar" id="azure_color" onClick="set_color(this,'#455af7');" style="background:#455af7;"></div>
-													
+									<div class="cbar" id="azure_color" onClick="set_color(this,'#455af7');" style="background:#455af7;"></div>			
 								</td>
 							</tr>
 							<tr>
@@ -1127,37 +949,6 @@ cufon cufontext { text-transform:lowercase !important}
     <!-- Clearfix -->    
     <div class="clear"></div>
 
-		
-<!-- IE fix -->
-<script type="text/javascript"> Cufon.now(); </script>	
-<script type="text/javascript">
-$('input[type=radio][name=interest]').change(function() {
-		var selected = jQuery("input:radio[name=interest]:checked");
-		if(selected.val() == 'Know More')
-		{
-			
-			$('#availservice').css('display','none');
-			$('#description').css('display','none');
-			
-			$('#knowmore').css('display','block');
-		}
-		else
-		{
-			
-			if(selected.val() == 'Avail Service')
-			{
-				$('#knowmore').css('display','none');
-				
-				$('#availservice').css('display','block');
-				$('#description').css('display','block');
-			}
-		}
-});		
-</script>
-
-
-
-
 <script>
 			var scene = new THREE.Scene();
 			var is_webgl=webgl_Detector.webgl;
@@ -1198,9 +989,7 @@ $('input[type=radio][name=interest]').change(function() {
 				controls.update();
 			}			
 			
-						
 			var units_cookie=getCookie("units");
-			suview.value=units_cookie=="in"?2:1;
 			view_units=units_cookie=="in"?2:1;
 			$id("vunits").innerHTML=units_cookie=="in"?"in":"mm";
 			
@@ -1257,30 +1046,11 @@ $('input[type=radio][name=interest]').change(function() {
 			$id('cjcwrap').addEventListener('drop', handleFileDrop, false);
 			
 		</script>
-		
-			
-		<!--<footer>
-			<a href="/">ViewSTL</a>&nbsp;&nbsp;&nbsp;
-			<a href="/embed/">Embed</a>&nbsp;&nbsp;&nbsp;
-			<a href="https://wordpress.org/plugins/wp-viewstl/" target="_blank">Wordpress Plugin</a>&nbsp;&nbsp;&nbsp;
-			<a href="/faq/">FAQ</a>&nbsp;&nbsp;&nbsp;
-			<a href="/tos/">Terms</a>&nbsp;&nbsp;&nbsp;
-			<a href="mailto:admin@viewstl.com">Contact</a>
-		</footer>	-->
-	
 	
 		<script>
 			if (need_browser)
 				alert('Your browser is too old and is not supported by this website. Please install a modern browser (Chrome is recommended).');
-		</script>
-		
-				
-				
-					
-		
-				
-				
-		
-		<script>setTimeout(function(){$id('mainwrap').style.visibility='visible';}, 200);</script>
+		</script>		
+
 </body>
 </html>
