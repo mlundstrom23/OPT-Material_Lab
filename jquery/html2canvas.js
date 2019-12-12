@@ -863,7 +863,7 @@
           modulus = number % 26;
           tmp = String.fromCharCode((modulus) + 64) + tmp;
           number = number / 26;
-        }while((number*26) > 26);
+        } while((number*26) > 26);
     
         return tmp;
       };
