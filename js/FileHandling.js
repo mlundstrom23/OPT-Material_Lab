@@ -166,9 +166,7 @@ function after_file_load(filename, s, examp = false)
 	area=vol_area[1];
 	triangles_count=geo.faces.length;
 	model_filename=filename;
-	$id('flname').value = model_filename;
 	var fllname = baseName(model_filename);
-	$id('flbname').value = fllname + '.png' ;
 
     recalc_units();
                 

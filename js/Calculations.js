@@ -2,8 +2,6 @@ function set_view_units(v)
 {
 	view_units=v;
 	$id("vunits").innerHTML=v=="1"?"mm":v=="2" ? "in" : "cm";
-	$id("flvunits").value = $id("vunits").innerHTML;
-	//setCookie("units", v=="1"?"mm":v=="2" ? "in" : "cm", 1000);
     //recalc_units();
 }
 			
@@ -107,9 +105,7 @@ function set_vol_and_size(vol,xsize,ysize,zsize)
 {
 	var p=view_units==2?0:0;
 	$id('ivol').innerHTML=numberWithCommas(vol.toFixed(p));
-    $id('isize').innerHTML=numberWithCommas(xsize.toFixed(p))+' x '+numberWithCommas(ysize.toFixed(p))+' x '+numberWithCommas(zsize.toFixed(p));
-	$id('flsize').value = $id('isize').innerHTML;
-	$id('flvolume').value = $id('ivol').innerHTML;				
+    $id('isize').innerHTML=numberWithCommas(xsize.toFixed(p)) + ' x ' + numberWithCommas(ysize.toFixed(p)) + ' x ' + numberWithCommas(zsize.toFixed(p));				
 }
 			
 // Getting values for printing time
@@ -119,12 +115,11 @@ function set_printing_time(zsize)
     var slider = document.getElementById("time");
     var output = document.getElementById("ispeed");
     var output1 = document.getElementById("itime");
-    output1.innerHTML = (slider.value/10)*numberWithCommas(zsize.toFixed(p)) + " seconds"
+    output1.innerHTML = (slider.value/10)*numberWithCommas(zsize.toFixed(p)) + " seconds";
     output.innerHTML = (slider.value/10) + " mm/sec";
             
     slider.oninput = function() {
         output1.innerHTML = (this.value/10)*numberWithCommas(zsize.toFixed(p)) + " seconds";
         output.innerHTML = (this.value/10) + " mm/sec";
     }
-    $id('fltime').value = $id('itime').innerHTML;
 }  
