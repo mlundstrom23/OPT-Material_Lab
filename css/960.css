@@ -28,19 +28,13 @@
 .grid_2 {
 	display: inline;
 	float: left;
-	margin-left: 10px;
-	margin-right: 10px;
 }
 
-/* `Grid >> 12 Columns (but only using two)
+/* `Grid >> 12 Columns (but only using one)
 ----------------------------------------------------------------------------------------------------*/
 
 .container_12 .grid_1 {
 	width: 460px;
-}
-
-.container_12 .grid_2 {
-	width: 940px;
 }
 
 /* `Clear Floated Elements
