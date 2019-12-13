@@ -3,6 +3,8 @@ function do_resize()
     var height = isNaN(window.innerHeight) ? window.clientHeight : window.innerHeight;
     var width = isNaN(window.innerWidth) ? window.clientWidth : window.innerWidth;
     height=Math.min(height,width-150);
+    
+    // Style for container *with* <script> tag before <head>
     $id('cjc').style.height='61%';
     $id('cjc').style.width='99%';
     $id('cjcwrap').style.height='61%';
@@ -13,6 +15,19 @@ function do_resize()
     $id('cjcpbar').style.left='12%';
     $id('cjcproc').style.top='38%';
     $id('cjcproc').style.left='12%';
+
+    // Style for container *without* <script> tag before <head>
+
+    /*$id('cjc').style.height=(height-220)+'px';
+	$id('cjc').style.width=(height-220)+'px';
+	$id('cjcwrap').style.height=(height-220)+'px';
+	$id('cjcwrap').style.width=(height-220)+'px';
+	$id('cjcdrag').style.top=((height-320)/2)+'px';
+	$id('cjcdrag').style.left=((height-570)/2)+'px';
+	$id('cjcpbar').style.top=((height-345)/2)+'px';
+	$id('cjcpbar').style.left=((height-570)/2)+'px';
+	$id('cjcproc').style.top=((height-345)/2)+'px';
+	$id('cjcproc').style.left=((height-570)/2)+'px';*/
 								
 	var rsize_width=$id("cjcwrap").getBoundingClientRect().width;
 	var rsize_height=$id("cjcwrap").getBoundingClientRect().height;
