@@ -1,6 +1,7 @@
 // Generate PDF of model
 function generate_pdf()
 {
+	// Dimensions of page are in different units from font size/spacing units
 	const pdf = new jsPDF('p', 'mm', [605, 665])
 
 	// Get image from canvas
@@ -41,7 +42,7 @@ function generate_pdf()
 	It will also add a space of 10 units between each key for each index */
 	pdf.setFontSize(10)
 	Object.keys(basicDetails).forEach((k, i) => {
-		pdf.text(`${k.toUpperCase().replace('_', ' ')}: ${basicDetails[k]}`, 15, 60 + (10 * i))
+		pdf.text(`${k.toUpperCase().replace('_', ' ')}: ${basicDetails[k]}`, 15, 60 + (10 * i)) // Last line is y = 80
 	})
 
 	pdf.setFontSize(20)
@@ -49,7 +50,7 @@ function generate_pdf()
 	
 	pdf.setFontSize(10)
 	Object.keys(printingDetails).forEach((k, i) => {
-		pdf.text(`${k.toUpperCase().replace('_', ' ')}: ${printingDetails[k]}`, 15, 110 + (10 * i))
+		pdf.text(`${k.toUpperCase().replace('_', ' ')}: ${printingDetails[k]}`, 15, 110 + (10 * i)) // Last line is y = 120
 	})
 
 	pdf.setFontSize(20)
@@ -57,7 +58,7 @@ function generate_pdf()
 				
 	pdf.setFontSize(10)
 	Object.keys(materialDetails).forEach((k, i) => {
-		pdf.text(`${k.toUpperCase().replace('_', ' ')}: ${materialDetails[k]}`, 15, 150 + (10 * i))
+		pdf.text(`${k.toUpperCase().replace('_', ' ')}: ${materialDetails[k]}`, 15, 150 + (10 * i)) // Last line is y = 160
 	})
 
 	pdf.setFontSize(20)
@@ -65,7 +66,7 @@ function generate_pdf()
 				
 	pdf.setFontSize(10)
 	Object.keys(priceDetails).forEach((k, i) => {
-		pdf.text(`${k.toUpperCase().replace('_', ' ')}: ${priceDetails[k]}`, 15, 180 + (10 * i))
+		pdf.text(`${k.toUpperCase().replace('_', ' ')}: ${priceDetails[k]}`, 15, 180 + (10 * i)) // Last line is y = 190
 	})
 
 				// image URI data so jsPDF can identify it to pdf.addImage function
