@@ -1,0 +1,119 @@
+/*
+	960 Grid System ~ Text CSS.
+	Learn more ~ http://960.gs/
+
+	Licensed under GPL and MIT.
+*/
+
+/* `Basic HTML
+----------------------------------------------------------------------------------------------------*/
+
+body {
+	font: 14px/1.7 'Roboto', Arial, 'Liberation Sans', FreeSans, sans-serif;
+}
+
+a:focus {
+	outline: 1px dotted;
+}
+
+hr {
+	border: 0px #d6d6d6 solid;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-bottom-color: #fff;
+	clear: both;
+	height: 0;
+}
+
+/* `Headings
+----------------------------------------------------------------------------------------------------*/
+
+h1 {
+	font-size: 38px;
+	color: #282b2e;
+	letter-spacing:0.01em;
+}
+
+h2 {
+	font-size: 30px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #282b2e;
+}
+
+h3 {
+	font-size: 24px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #282b2e;
+}
+
+h4 {
+	font-size: 20px;
+	font-weight: bold;
+	color: #282b2e;
+}
+
+h5 {
+	font-size: 12px;
+	font-weight: bold;
+	color: #282b2e;
+}
+
+h6 {
+	font-size: 12px;
+	font-weight: bold;
+	color: #2396d9;
+}
+
+/* `Spacing
+----------------------------------------------------------------------------------------------------*/
+
+ol {
+	list-style: decimal;
+}
+
+ul {
+	list-style: disc;
+}
+
+li {
+	margin-left: 20px;
+}
+
+p,
+dl,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
+pre,
+table,
+address,
+fieldset {
+	margin-bottom: 20px;
+}
+
+sub, sup {
+	/* Specified in % so that the sup/sup is the right size relative to the surrounding text */
+	font-size: 90%;
+  
+	/* Zero out the line-height so that it doesn't interfere with the positioning that follows */
+	line-height: 0;
+  
+	/* Where the magic happens: makes all browsers position the sup/sup properly, relative to the surrounding text */
+	position: relative;
+  
+	/* Note that if you're using Eric Meyer's reset.css, this is already set and you can remove this rule */
+	vertical-align: baseline;
+}
+  
+sup {
+	/* Move the superscripted text up */
+	top: -0.3em;
+}
